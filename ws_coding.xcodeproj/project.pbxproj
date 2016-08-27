@@ -13,9 +13,6 @@
 		541A86221D6DBA5900D62672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541A86201D6DBA5900D62672 /* LaunchScreen.storyboard */; };
 		541A862D1D6DBA5900D62672 /* ws_codingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 541A862C1D6DBA5900D62672 /* ws_codingTests.m */; };
 		541A86381D6DBA5900D62672 /* ws_codingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 541A86371D6DBA5900D62672 /* ws_codingUITests.m */; };
-		549EAA6D1D6DBE2E008FFA6F /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAA681D6DBE2E008FFA6F /* RDVTabBar.m */; };
-		549EAA6E1D6DBE2E008FFA6F /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAA6A1D6DBE2E008FFA6F /* RDVTabBarController.m */; };
-		549EAA6F1D6DBE2E008FFA6F /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAA6C1D6DBE2E008FFA6F /* RDVTabBarItem.m */; };
 		549EAA721D6DBEB1008FFA6F /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAA711D6DBEB1008FFA6F /* RootTabViewController.m */; };
 		549EACC31D6DC08C008FFA6F /* add_user_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 549EAA741D6DC08C008FFA6F /* add_user_icon@2x.png */; };
 		549EACC41D6DC08C008FFA6F /* addPictureBgImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 549EAA751D6DC08C008FFA6F /* addPictureBgImage@2x.png */; };
@@ -571,6 +568,11 @@
 		549EAEF01D6DC2AD008FFA6F /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAEEF1D6DC2AD008FFA6F /* UIColor+expanded.m */; };
 		549EAEF31D6DD378008FFA6F /* UIView+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAEF21D6DD378008FFA6F /* UIView+Common.m */; };
 		549EAEF61D6DD723008FFA6F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAEF51D6DD723008FFA6F /* ViewController.m */; };
+		54EB9B361D713F8900FA6610 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EB9B351D713F8900FA6610 /* IntroductionViewController.m */; };
+		54EB9CB11D71435600FA6610 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EB9BE31D71435600FA6610 /* RDVTabBar.m */; };
+		54EB9CB21D71435600FA6610 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EB9BE51D71435600FA6610 /* RDVTabBarController.m */; };
+		54EB9CB31D71435600FA6610 /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EB9BE71D71435600FA6610 /* RDVTabBarItem.m */; };
+		54EB9CC81D71435600FA6610 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EB9C171D71435600FA6610 /* SMPageControl.m */; };
 		B9B296A91020652E501EEE76 /* libPods-ws_coding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC45433BBE834513213DBEB /* libPods-ws_coding.a */; };
 /* End PBXBuildFile section */
 
@@ -606,12 +608,6 @@
 		541A86371D6DBA5900D62672 /* ws_codingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ws_codingUITests.m; sourceTree = "<group>"; };
 		541A86391D6DBA5900D62672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		541A86481D6DBBF400D62672 /* ws_coding-Pirefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ws_coding-Pirefix.pch"; sourceTree = "<group>"; };
-		549EAA671D6DBE2E008FFA6F /* RDVTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBar.h; sourceTree = "<group>"; };
-		549EAA681D6DBE2E008FFA6F /* RDVTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBar.m; sourceTree = "<group>"; };
-		549EAA691D6DBE2E008FFA6F /* RDVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarController.h; sourceTree = "<group>"; };
-		549EAA6A1D6DBE2E008FFA6F /* RDVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarController.m; sourceTree = "<group>"; };
-		549EAA6B1D6DBE2E008FFA6F /* RDVTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarItem.h; sourceTree = "<group>"; };
-		549EAA6C1D6DBE2E008FFA6F /* RDVTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarItem.m; sourceTree = "<group>"; };
 		549EAA701D6DBEB1008FFA6F /* RootTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabViewController.h; sourceTree = "<group>"; };
 		549EAA711D6DBEB1008FFA6F /* RootTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabViewController.m; sourceTree = "<group>"; };
 		549EAA741D6DC08C008FFA6F /* add_user_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_user_icon@2x.png"; sourceTree = "<group>"; };
@@ -1172,6 +1168,16 @@
 		549EAEF21D6DD378008FFA6F /* UIView+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Common.m"; sourceTree = "<group>"; };
 		549EAEF41D6DD723008FFA6F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		549EAEF51D6DD723008FFA6F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		54EB9B341D713F8900FA6610 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
+		54EB9B351D713F8900FA6610 /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionViewController.m; sourceTree = "<group>"; };
+		54EB9BE21D71435600FA6610 /* RDVTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBar.h; sourceTree = "<group>"; };
+		54EB9BE31D71435600FA6610 /* RDVTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBar.m; sourceTree = "<group>"; };
+		54EB9BE41D71435600FA6610 /* RDVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarController.h; sourceTree = "<group>"; };
+		54EB9BE51D71435600FA6610 /* RDVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarController.m; sourceTree = "<group>"; };
+		54EB9BE61D71435600FA6610 /* RDVTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarItem.h; sourceTree = "<group>"; };
+		54EB9BE71D71435600FA6610 /* RDVTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarItem.m; sourceTree = "<group>"; };
+		54EB9C161D71435600FA6610 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
+		54EB9C171D71435600FA6610 /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
 		728916B02C3250DAABE6DE7E /* Pods-ws_coding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ws_coding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ws_coding/Pods-ws_coding.debug.xcconfig"; sourceTree = "<group>"; };
 		DD1542B4E18DF246DC74A1EF /* Pods-ws_coding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ws_coding.release.xcconfig"; path = "Pods/Target Support Files/Pods-ws_coding/Pods-ws_coding.release.xcconfig"; sourceTree = "<group>"; };
 		FEC45433BBE834513213DBEB /* libPods-ws_coding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ws_coding.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1254,9 +1260,9 @@
 				541A86471D6DBB0400D62672 /* Views */,
 				541A86451D6DBB0400D62672 /* Controllers */,
 				541A86461D6DBB0400D62672 /* Models */,
-				549EAA651D6DBE0F008FFA6F /* Vendor */,
 				541A86121D6DBA5900D62672 /* Supporting Files */,
 				549EAA731D6DC08C008FFA6F /* Images */,
+				54EB9B371D71435600FA6610 /* Vendor */,
 				549EAEEC1D6DC289008FFA6F /* Util */,
 				549EAEF41D6DD723008FFA6F /* ViewController.h */,
 				549EAEF51D6DD723008FFA6F /* ViewController.m */,
@@ -1293,8 +1299,8 @@
 		541A86451D6DBB0400D62672 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				549EAA701D6DBEB1008FFA6F /* RootTabViewController.h */,
-				549EAA711D6DBEB1008FFA6F /* RootTabViewController.m */,
+				54EB9B331D713F5900FA6610 /* RootViewController */,
+				54EB9B321D713F3F00FA6610 /* Login */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1313,27 +1319,6 @@
 				549EAEEA1D6DC0C4008FFA6F /* EaseStartView.m */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		549EAA651D6DBE0F008FFA6F /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				549EAA661D6DBE2E008FFA6F /* RDVTabBarController */,
-			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		549EAA661D6DBE2E008FFA6F /* RDVTabBarController */ = {
-			isa = PBXGroup;
-			children = (
-				549EAA671D6DBE2E008FFA6F /* RDVTabBar.h */,
-				549EAA681D6DBE2E008FFA6F /* RDVTabBar.m */,
-				549EAA691D6DBE2E008FFA6F /* RDVTabBarController.h */,
-				549EAA6A1D6DBE2E008FFA6F /* RDVTabBarController.m */,
-				549EAA6B1D6DBE2E008FFA6F /* RDVTabBarItem.h */,
-				549EAA6C1D6DBE2E008FFA6F /* RDVTabBarItem.m */,
-			);
-			path = RDVTabBarController;
 			sourceTree = "<group>";
 		};
 		549EAA731D6DC08C008FFA6F /* Images */ = {
@@ -2240,6 +2225,55 @@
 			path = OC_Category;
 			sourceTree = "<group>";
 		};
+		54EB9B321D713F3F00FA6610 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				54EB9B341D713F8900FA6610 /* IntroductionViewController.h */,
+				54EB9B351D713F8900FA6610 /* IntroductionViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		54EB9B331D713F5900FA6610 /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				549EAA701D6DBEB1008FFA6F /* RootTabViewController.h */,
+				549EAA711D6DBEB1008FFA6F /* RootTabViewController.m */,
+			);
+			name = RootViewController;
+			sourceTree = "<group>";
+		};
+		54EB9B371D71435600FA6610 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				54EB9BE11D71435600FA6610 /* RDVTabBarController */,
+				54EB9C151D71435600FA6610 /* SMPageControl */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		54EB9BE11D71435600FA6610 /* RDVTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				54EB9BE21D71435600FA6610 /* RDVTabBar.h */,
+				54EB9BE31D71435600FA6610 /* RDVTabBar.m */,
+				54EB9BE41D71435600FA6610 /* RDVTabBarController.h */,
+				54EB9BE51D71435600FA6610 /* RDVTabBarController.m */,
+				54EB9BE61D71435600FA6610 /* RDVTabBarItem.h */,
+				54EB9BE71D71435600FA6610 /* RDVTabBarItem.m */,
+			);
+			path = RDVTabBarController;
+			sourceTree = "<group>";
+		};
+		54EB9C151D71435600FA6610 /* SMPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				54EB9C161D71435600FA6610 /* SMPageControl.h */,
+				54EB9C171D71435600FA6610 /* SMPageControl.m */,
+			);
+			path = SMPageControl;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2329,6 +2363,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 541A86061D6DBA5900D62672;
 			productRefGroup = 541A86101D6DBA5900D62672 /* Products */;
@@ -2972,15 +3007,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				549EAA721D6DBEB1008FFA6F /* RootTabViewController.m in Sources */,
+				54EB9CB31D71435600FA6610 /* RDVTabBarItem.m in Sources */,
 				549EAEF31D6DD378008FFA6F /* UIView+Common.m in Sources */,
-				549EAA6F1D6DBE2E008FFA6F /* RDVTabBarItem.m in Sources */,
-				549EAA6E1D6DBE2E008FFA6F /* RDVTabBarController.m in Sources */,
 				549EAEF61D6DD723008FFA6F /* ViewController.m in Sources */,
+				54EB9B361D713F8900FA6610 /* IntroductionViewController.m in Sources */,
 				541A86171D6DBA5900D62672 /* AppDelegate.m in Sources */,
 				549EAEEB1D6DC0C4008FFA6F /* EaseStartView.m in Sources */,
 				541A86141D6DBA5900D62672 /* main.m in Sources */,
+				54EB9CB21D71435600FA6610 /* RDVTabBarController.m in Sources */,
+				54EB9CC81D71435600FA6610 /* SMPageControl.m in Sources */,
+				54EB9CB11D71435600FA6610 /* RDVTabBar.m in Sources */,
 				549EAEF01D6DC2AD008FFA6F /* UIColor+expanded.m in Sources */,
-				549EAA6D1D6DBE2E008FFA6F /* RDVTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3121,6 +3158,11 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ws_coding/ws_coding-Pirefix.pch";
 				INFOPLIST_FILE = ws_coding/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ws_coding/Vendor/UMSocial_Sdk_4.3.0_Extra/SinaSSO",
+					"$(PROJECT_DIR)/ws_coding/Vendor/XGPush",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ws.coding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -3136,6 +3178,11 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ws_coding/ws_coding-Pirefix.pch";
 				INFOPLIST_FILE = ws_coding/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ws_coding/Vendor/UMSocial_Sdk_4.3.0_Extra/SinaSSO",
+					"$(PROJECT_DIR)/ws_coding/Vendor/XGPush",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ws.coding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

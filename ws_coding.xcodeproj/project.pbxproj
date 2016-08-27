@@ -568,6 +568,7 @@
 		549EAEF01D6DC2AD008FFA6F /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAEEF1D6DC2AD008FFA6F /* UIColor+expanded.m */; };
 		549EAEF31D6DD378008FFA6F /* UIView+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAEF21D6DD378008FFA6F /* UIView+Common.m */; };
 		549EAEF61D6DD723008FFA6F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAEF51D6DD723008FFA6F /* ViewController.m */; };
+		54DEDF4E1D7165E20014BC3A /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DEDF4D1D7165E20014BC3A /* Login.m */; };
 		54EB9B361D713F8900FA6610 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EB9B351D713F8900FA6610 /* IntroductionViewController.m */; };
 		54EB9CB11D71435600FA6610 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EB9BE31D71435600FA6610 /* RDVTabBar.m */; };
 		54EB9CB21D71435600FA6610 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EB9BE51D71435600FA6610 /* RDVTabBarController.m */; };
@@ -1168,6 +1169,8 @@
 		549EAEF21D6DD378008FFA6F /* UIView+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Common.m"; sourceTree = "<group>"; };
 		549EAEF41D6DD723008FFA6F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		549EAEF51D6DD723008FFA6F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		54DEDF4C1D7165E20014BC3A /* Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
+		54DEDF4D1D7165E20014BC3A /* Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Login.m; sourceTree = "<group>"; };
 		54EB9B341D713F8900FA6610 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
 		54EB9B351D713F8900FA6610 /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionViewController.m; sourceTree = "<group>"; };
 		54EB9BE21D71435600FA6610 /* RDVTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBar.h; sourceTree = "<group>"; };
@@ -1308,6 +1311,8 @@
 		541A86461D6DBB0400D62672 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				54DEDF4C1D7165E20014BC3A /* Login.h */,
+				54DEDF4D1D7165E20014BC3A /* Login.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -3008,6 +3013,7 @@
 			files = (
 				549EAA721D6DBEB1008FFA6F /* RootTabViewController.m in Sources */,
 				54EB9CB31D71435600FA6610 /* RDVTabBarItem.m in Sources */,
+				54DEDF4E1D7165E20014BC3A /* Login.m in Sources */,
 				549EAEF31D6DD378008FFA6F /* UIView+Common.m in Sources */,
 				549EAEF61D6DD723008FFA6F /* ViewController.m in Sources */,
 				54EB9B361D713F8900FA6610 /* IntroductionViewController.m in Sources */,
@@ -3154,9 +3160,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ws_coding/ws_coding-Pirefix.pch";
 				INFOPLIST_FILE = ws_coding/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3165,6 +3173,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ws.coding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -3174,9 +3183,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ws_coding/ws_coding-Pirefix.pch";
 				INFOPLIST_FILE = ws_coding/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3185,6 +3196,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ws.coding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

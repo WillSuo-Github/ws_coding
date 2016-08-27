@@ -8,6 +8,7 @@
 
 #import "IntroductionViewController.h"
 #import "SMPageControl.h"
+#import <NYXImagesKit.h>
 
 @interface IntroductionViewController ()
 
@@ -61,12 +62,80 @@
     self.view.backgroundColor = [UIColor colorWithHexString:@"f1f1f1"];
     
     [self configViews];
+    [self configAnimations];
 }
 
+
+- (NSString *)imageKeyForIndex:(NSInteger)index{
+    return [NSString stringWithFormat:@"%ld_image", (long)index];
+}
+
+- (NSString *)viewKeyForIndex:(NSInteger)index{
+    return [NSString stringWithFormat:@"%ld_view", (long)index];
+}
+
+
+#pragma mark - Orientations
+- (BOOL)shouldAutorotate{//转动屏幕时调用 返回yes 代表能旋转，返回no代表不能旋转
+    
+    NSLog(@"-----%d",UIInterfaceOrientationIsLandscape(self.interfaceOrientation));
+    
+    return UIInterfaceOrientationIsLandscape(self.interfaceOrientation);
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{//界面优选方向  //??旋转屏幕有问题
+    
+    return UIInterfaceOrientationPortrait;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
+- (void)forceChangeToOrientation:(UIInterfaceOrientation)interfaceOrientation{
+    [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:interfaceOrientation] forKey:@"orientation"];
+}
+
+#pragma mark Views
 - (void)configViews{
     //配置登录、注册按钮和pageControl
     [self configButtonAndPageControl];
     
+    CGFloat scaleFactor = 1.0;
+    CGFloat desginHeight = 667;//iPhone6 的设计尺寸
+    if (!kDevice_Is_iPhone6 && !kDevice_Is_iPhone6Plus) {
+        scaleFactor = kScreen_Height/desginHeight;
+    }
+    
+    for (int i = 0; i < self.numberOfPages; i ++) {
+        NSString *imageKey = [self imageKeyForIndex:i];
+        NSString *viewKey = [self viewKeyForIndex:i];
+        NSString *iconImageName = [self.iconsDict objectForKey:imageKey];
+        NSString *tipImageName = [self.tipsDict objectForKey:imageKey];
+        
+        if (iconImageName) {
+            UIImage * iconImage = [UIImage imageNamed:iconImageName];
+            if (iconImage) {
+                iconImage = scaleFactor != 1.0? [iconImage scaleByFactor:scaleFactor] : iconImage;
+                UIImageView *iconView = [[UIImageView alloc] initWithImage:iconImage];
+                [self.contentView addSubview:iconView];
+                [self.iconsDict setObject:iconView forKey:viewKey];
+            }
+        }
+        
+        if (tipImageName) {
+            UIImage *tipImage = [UIImage imageNamed:tipImageName];
+            if (tipImage) {
+                tipImage = scaleFactor != 1.0? [tipImage scaleByFactor:scaleFactor] : tipImage;
+                UIImageView *tipView = [[UIImageView alloc] initWithImage:tipImage];
+                [self.contentView addSubview:tipView];
+                [self.tipsDict setObject:tipView forKey:viewKey];
+            }
+        }
+        
+    }
 }
 
 //配置登录、注册按钮和pageControl
@@ -129,6 +198,14 @@
     
     UIImage *pageIndicatorImage = [UIImage imageNamed:@"intro_dot_unselected"];
     UIImage *currentPageIndicatorImage = [UIImage imageNamed:@"intro_dot_selected"];
+    
+    if (!kDevice_Is_iPhone6 && !kDevice_Is_iPhone6Plus) {
+        CGFloat desginWidth = 375;//iphone 6 的设计尺寸
+        CGFloat scaleFactor = kScreen_Width/desginWidth;
+        pageIndicatorImage = [pageIndicatorImage scaleByFactor:scaleFactor];
+        currentPageIndicatorImage = [currentPageIndicatorImage scaleByFactor:scaleFactor];
+    }
+    
     self.pageControl = ({
         
         SMPageControl *pageControl = [[SMPageControl alloc] init];
@@ -151,6 +228,52 @@
 }
 
 #pragma mark Animations
+- (void)configAnimations{
+    
+    [self configureTipAndTitleViewAnitions];
+}
+
+- (void)configureTipAndTitleViewAnitions{
+    
+    for (int i = 0; i < self.numberOfPages; i ++) {
+        NSString *viewKey = [self viewKeyForIndex:i];
+        UIView *iconView = [self.iconsDict objectForKey:viewKey];
+        UIView *tipView = [self.tipsDict objectForKey:viewKey];
+        if (iconView) {
+            if (i == 0) {
+//                [self keepView:iconView onPages:@[@(i + 1),@(i)] atTimes:@[@(i - 1),@(i)]]; //??
+                [self keepView:iconView onPage:i];
+                [iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.top.mas_equalTo(kScreen_Height / 7);
+                }];
+            }else{
+                [self keepView:iconView onPage:i];
+                [iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.centerY.mas_equalTo(-kScreen_Height / 6);
+                }];
+            }
+            IFTTTAlphaAnimation *iconAlphaAnimation = [[IFTTTAlphaAnimation alloc] initWithView:iconView];
+            [iconAlphaAnimation addKeyframeForTime:i - 0.5f alpha:0.0f];
+            [iconAlphaAnimation addKeyframeForTime:i alpha:1.0f];
+            [iconAlphaAnimation addKeyframeForTime:i + 0.5f alpha:0.0f];
+            [self.animator addAnimation:iconAlphaAnimation];
+        }
+        
+        if (tipView) {
+            
+            [tipView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(iconView.mas_bottom).offset(kScaleFrom_iPhone5_Desgin(45));
+            }];
+            
+            [self keepView:tipView onPages:@[@(i +1), @(i), @(i-1)] atTimes:@[@(i - 1), @(i), @(i +1)]];
+            IFTTTAlphaAnimation *tipViewAnimation = [[IFTTTAlphaAnimation alloc] initWithView:tipView];
+            [tipViewAnimation addKeyframeForTime:i - 0.5f alpha:0.0f];
+            [tipViewAnimation addKeyframeForTime:i alpha:1.0f];
+            [tipViewAnimation addKeyframeForTime:i + 0.5f alpha:0.0f];
+            [self.animator addAnimation:tipViewAnimation];
+        }
+    }
+}
 
 
 #pragma mark Action

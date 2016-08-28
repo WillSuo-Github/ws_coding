@@ -9,6 +9,7 @@
 #import "IntroductionViewController.h"
 #import "SMPageControl.h"
 #import <NYXImagesKit.h>
+#import "LoginViewController.h"
 
 @interface IntroductionViewController ()
 
@@ -96,6 +97,14 @@
 
 - (void)forceChangeToOrientation:(UIInterfaceOrientation)interfaceOrientation{
     [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:interfaceOrientation] forKey:@"orientation"];
+}
+
+#pragma mark Super
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self animateCurrentFrame];
+    NSInteger nearestPage = floorf(self.pageOffset + 0.5);
+    self.pageControl.currentPage = nearestPage;
 }
 
 #pragma mark Views
@@ -284,10 +293,10 @@
 }
 
 - (void)loginBtnClicked{
-//    LoginViewController *vc = [[LoginViewController alloc] init];
-//    vc.showDismissButton = YES;
-//    UINavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-//    [self presentViewController:nav animated:YES completion:nil];
+    LoginViewController *vc = [[LoginViewController alloc] init];
+    vc.showDismissButton = YES;
+    UINavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end

@@ -15,6 +15,8 @@
 - (void)setX:(CGFloat)x;
 - (void)setOrigin:(CGPoint)origin;
 - (void)setHeight:(CGFloat)height;
-- (void)setWidth:(CGFloat)width;
+- (void)setWidth:(CGFloat)width;;
 - (void)setSize:(CGSize)size;
+
+- (void)addGradientLayerWithColors:(NSArray *)cgColorArray locations:(NSArray *)floatNumArray startPoint:(CGPoint )startPoint endPoint:(CGPoint)endPoint;
 @end

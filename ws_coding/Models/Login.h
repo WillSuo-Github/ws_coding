@@ -10,5 +10,7 @@
 
 @interface Login : NSObject
 
+@property (readwrite, nonatomic, strong) NSString *email, *password;
+
 + (BOOL)isLogin;
 @end

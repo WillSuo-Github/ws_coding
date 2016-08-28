@@ -45,4 +45,21 @@
     frame.size.height = size.height;
     self.frame = frame;
 }
+
+- (void)addGradientLayerWithColors:(NSArray *)cgColorArray locations:(NSArray *)floatNumArray startPoint:(CGPoint )startPoint endPoint:(CGPoint)endPoint{
+    CAGradientLayer *layer = [CAGradientLayer layer];
+    layer.frame = self.bounds;
+    if (cgColorArray && [cgColorArray count] > 0) {
+        layer.colors = cgColorArray;
+    }else{
+        return;
+    }
+    if (floatNumArray && [floatNumArray count] == [cgColorArray count]) {
+        layer.locations = floatNumArray;
+    }
+    layer.startPoint = startPoint;
+    layer.endPoint = endPoint;
+    [self.layer addSublayer:layer];
+}
+
 @end

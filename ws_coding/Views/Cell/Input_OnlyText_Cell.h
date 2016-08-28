@@ -17,6 +17,8 @@
 @interface Input_OnlyText_Cell : UITableViewCell
 @property (nonatomic, strong, readonly) UITextField *textField;
 
+@property (strong, nonatomic, readonly) PhoneCodeButton *verify_codeBtn;
+
 @property (assign, nonatomic) BOOL isForLoginVC;
 
 @property (nonatomic,copy) void(^textValueChangedBlock)(NSString *);//改变

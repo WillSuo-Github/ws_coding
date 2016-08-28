@@ -33,6 +33,7 @@
 		5485A6271D72F11E00718940 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5485A6161D72F11E00718940 /* UIImageView+HighlightedWebCache.m */; };
 		5485A6281D72F11E00718940 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5485A6181D72F11E00718940 /* UIImageView+WebCache.m */; };
 		5485A6291D72F11E00718940 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5485A61A1D72F11E00718940 /* UIView+WebCacheOperation.m */; };
+		5485A62C1D73142300718940 /* PhoneCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5485A62B1D73142300718940 /* PhoneCodeButton.m */; };
 		549EAA721D6DBEB1008FFA6F /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAA711D6DBEB1008FFA6F /* RootTabViewController.m */; };
 		549EACC31D6DC08C008FFA6F /* add_user_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 549EAA741D6DC08C008FFA6F /* add_user_icon@2x.png */; };
 		549EACC41D6DC08C008FFA6F /* addPictureBgImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 549EAA751D6DC08C008FFA6F /* addPictureBgImage@2x.png */; };
@@ -672,6 +673,8 @@
 		5485A6181D72F11E00718940 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		5485A6191D72F11E00718940 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		5485A61A1D72F11E00718940 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		5485A62A1D73142300718940 /* PhoneCodeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneCodeButton.h; sourceTree = "<group>"; };
+		5485A62B1D73142300718940 /* PhoneCodeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneCodeButton.m; sourceTree = "<group>"; };
 		549EAA701D6DBEB1008FFA6F /* RootTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabViewController.h; sourceTree = "<group>"; };
 		549EAA711D6DBEB1008FFA6F /* RootTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabViewController.m; sourceTree = "<group>"; };
 		549EAA741D6DC08C008FFA6F /* add_user_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_user_icon@2x.png"; sourceTree = "<group>"; };
@@ -1390,6 +1393,8 @@
 				5485A5F01D72E57300718940 /* Cell */,
 				549EAEE91D6DC0C4008FFA6F /* EaseStartView.h */,
 				549EAEEA1D6DC0C4008FFA6F /* EaseStartView.m */,
+				5485A62A1D73142300718940 /* PhoneCodeButton.h */,
+				5485A62B1D73142300718940 /* PhoneCodeButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3164,6 +3169,7 @@
 				54DEDF541D717E490014BC3A /* BaseNavigationController.m in Sources */,
 				5485A6271D72F11E00718940 /* UIImageView+HighlightedWebCache.m in Sources */,
 				54EB9CB31D71435600FA6610 /* RDVTabBarItem.m in Sources */,
+				5485A62C1D73142300718940 /* PhoneCodeButton.m in Sources */,
 				5485A61E1D72F11E00718940 /* SDWebImageDecoder.m in Sources */,
 				5485A61B1D72F11E00718940 /* NSData+ImageContentType.m in Sources */,
 				5485A5F31D72E59400718940 /* Login2FATipCell.m in Sources */,

@@ -5,15 +5,18 @@
 //  Created by ws on 16/8/28.
 //  Copyright © 2016年 ws. All rights reserved.
 //
-
+#define kCellIdentifier_Input_OnlyText_Cell_PhoneCode_Prefix @"Input_OnlyText_Cell_PhoneCode"
 #import "Input_OnlyText_Cell.h"
 
 
 @interface Input_OnlyText_Cell ()
 @property (strong, nonatomic) UIView *lineView;
-@property (strong, nonatomic) UIButton *clearBtn;
+@property (strong, nonatomic) UIButton *clearBtn, *passwordBtn;
+
 
 @property (strong, nonatomic) UITapImageView *captchaView;
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
+
 @end
 
 @implementation Input_OnlyText_Cell
@@ -42,12 +45,48 @@
         }else if ([reuseIdentifier isEqualToString:kCellIdentifier_Input_OnlyText_Cell_Captcha]){
             @weakify(self);
             if (!_captchaView) {
-                _captchaView = [UITapImageView alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+                _captchaView = [[UITapImageView alloc] initWithFrame:CGRectMake(kScreen_Width - 60 - kLoginPaddingLeftWidth, (44 -25)/2, 60, 25)];
+                _captchaView.layer.cornerRadius = 5;
+                _captchaView.layer.masksToBounds = YES;
+                [_captchaView addTapBlock:^(id obj) {
+                    @strongify(self);
+                    
+                }];
+                [self.contentView addSubview:_captchaView];
             }
+            
+            if (!_activityIndicator) {
+                _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+                _activityIndicator.hidesWhenStopped = YES;
+                [self.contentView addSubview:_activityIndicator];
+                [_activityIndicator mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.center.equalTo(self.captchaView);
+                }];
+            }
+        }else if ([reuseIdentifier isEqualToString:kCellIdentifier_Input_OnlyText_Cell_Password]){
+            
+            if (!_passwordBtn) {
+                _textField.secureTextEntry = YES;
+                
+                _passwordBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreen_Width - 44- kLoginPaddingLeftWidth, 0, 44, 44)];
+                [_passwordBtn setImage:[UIImage imageNamed:@"password_unlook"] forState:UIControlStateNormal];
+                [_passwordBtn addTarget:self action:@selector(passwordBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+                [self.contentView addSubview:_passwordBtn];
+            }
+        }else if ([reuseIdentifier isEqualToString:kCellIdentifier_Input_OnlyText_Cell_PhoneCode_Prefix]){
+            
+            
         }
         
     }
     return self;
+}
+
+#pragma mark button Chick
+- (void)passwordBtnClicked:(UIButton *)button{
+    
+    _textField.secureTextEntry = !_textField.secureTextEntry;
+    [button setImage:[UIImage imageNamed:_textField.secureTextEntry? @"password_unlook": @"password_look"] forState:UIControlStateNormal];
 }
 
 #pragma mark TextField

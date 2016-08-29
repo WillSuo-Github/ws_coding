@@ -13,10 +13,11 @@
 
 #import <UIKit/UIKit.h>
 #import "UITapImageView.h"
+#import "PhoneCodeButton.h"
 
 @interface Input_OnlyText_Cell : UITableViewCell
 @property (nonatomic, strong, readonly) UITextField *textField;
-
+@property (strong, nonatomic) UILabel *countryCodeL;
 @property (strong, nonatomic, readonly) PhoneCodeButton *verify_codeBtn;
 
 @property (assign, nonatomic) BOOL isForLoginVC;
@@ -25,4 +26,7 @@
 @property (nonatomic,copy) void(^editDidBeginBlock)(NSString *);//开始编辑
 @property (nonatomic,copy) void(^editDidEndBlock)(NSString *);//结束编辑
 @property (nonatomic,copy) void(^countryCodeBtnClickedBlock)();
+@property (nonatomic,copy) void(^phoneCodeBtnClckedBlock)(PhoneCodeButton *);//发送验证码的点击
+
+- (void)setPlaceholder:(NSString *)phStr value:(NSString *)valueStr;
 @end

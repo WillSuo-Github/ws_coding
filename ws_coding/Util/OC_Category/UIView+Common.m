@@ -61,5 +61,13 @@
     layer.endPoint = endPoint;
     [self.layer addSublayer:layer];
 }
+//添加一个指定边角的圆角
+- (void)addRoundingCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii{
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:cornerRadii];
+    CAShapeLayer *maskLayer = [CAShapeLayer new];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
+}
 
 @end

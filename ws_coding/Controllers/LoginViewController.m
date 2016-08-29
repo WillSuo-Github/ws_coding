@@ -12,6 +12,7 @@
 #import <UIImage+BlurredFrame/UIImage+BlurredFrame.h>
 #import "Login.h"
 #import "Login2FATipCell.h"
+#import "Input_OnlyText_Cell.h"
 
 @interface LoginViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -20,6 +21,11 @@
 @property (nonatomic, strong) UIImageView *bgBlurredView;//主view的背景
 @property (strong, nonatomic) UIImageView *iconUserView;//头部的logo
 @property (strong, nonatomic) UIButton *loginBtn, *cannotLoginBtn;//登录按钮, 找回密码按钮
+@property (strong, nonatomic) EaseInputTipsView *inputTipsView;
+
+
+@property (assign, nonatomic) BOOL is2FAUI;//二次验证
+@property (strong, nonatomic) NSString *otpCode;
 
 @end
 
@@ -134,12 +140,34 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    if (self.is2FAUI && indexPath.row == 0) {
+        Login2FATipCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier_Login2FATipCell];
+        cell.tipLabel.text = @"  您的账户开启了两步验证，请输入动态验证码登录  ";
+        return cell;
     }
-    cell.textLabel.text = @"1111";
-    return cell;
+    
+    Input_OnlyText_Cell *cell = [tableView dequeueReusableCellWithIdentifier:(indexPath.row > 1?kCellIdentifier_Input_OnlyText_Cell_Captcha : kCellIdentifier_Input_OnlyText_Cell_Text) forIndexPath:indexPath];
+    cell.isForLoginVC = YES;
+    @weakify(self);
+    if (self.is2FAUI) {
+        cell.textField.keyboardType = UIKeyboardTypeNumberPad;
+        [cell setPlaceholder:@" 动态验证码" value:self.otpCode];
+        cell.textValueChangedBlock = ^(NSString *valueStr){
+            @strongify(self);
+            self.otpCode = valueStr;
+        };
+    }else{
+        if (indexPath.row == 0) {
+            cell.textField.keyboardType = UIKeyboardTypeEmailAddress;
+            [cell setPlaceholder:@" 手机号码/电子邮箱/个性后缀" value:self.myLogin.email];
+            cell.textValueChangedBlock = ^(NSString *valueStr){
+                @strongify(self);
+                self.
+                
+            }
+        }
+    }
+    
 }
 
 #pragma mark 懒加载

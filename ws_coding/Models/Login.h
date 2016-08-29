@@ -13,4 +13,5 @@
 @property (readwrite, nonatomic, strong) NSString *email, *password;
 
 + (BOOL)isLogin;
++ (NSMutableDictionary *)readLogonDataList;
 @end

@@ -19,4 +19,6 @@
 - (void)setSize:(CGSize)size;
 
 - (void)addGradientLayerWithColors:(NSArray *)cgColorArray locations:(NSArray *)floatNumArray startPoint:(CGPoint )startPoint endPoint:(CGPoint)endPoint;
+
+- (void)addRoundingCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii;
 @end

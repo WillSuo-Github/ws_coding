@@ -9,7 +9,7 @@
 #import "EaseInputTipsView.h"
 #import "Login.h"
 
-@interface EaseInputTipsView ()
+@interface EaseInputTipsView ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) UITableView *myTableView;
 @property (strong, nonatomic) NSArray *dataList;
 
@@ -100,10 +100,50 @@
     NSString *nameStr = [_valueStr substringToIndex:rang_AT.location];
     NSString *tipStr = [_valueStr substringFromIndex:rang_AT.location];
     NSMutableArray *list = [NSMutableArray new];
+    [[self emailList] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (tipStr.length && [tipStr rangeOfString:tipStr].location != NSNotFound) {//??原工程用的||
+            [list addObject:[nameStr stringByAppendingFormat:@"@%@",obj]];
+        }
+    }];
     
     
-    return nil;
+    return list;
 }
+
+#pragma mark tableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return _dataList.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *cellIdentifier = @"EaseInpuTipsViewCell";
+    NSInteger labelTag = 99;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell.backgroundColor = [UIColor clearColor];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(kLoginPaddingLeftWidth, 0, kScreen_Width - 2 * kLoginPaddingLeftWidth, 35)];
+        label.font = [UIFont systemFontOfSize:14];
+        label.tag = labelTag;
+        [cell.contentView addSubview:label];
+    }
+    
+    UILabel *label = [(UILabel *)cell.contentView viewWithTag:labelTag];
+    label.textColor = [UIColor colorWithHexString:_type == EaseInputTipsViewTypeLogin? @"222222" : @"666666"];
+    label.text = [_dataList objectAtIndex:indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView]
+}
+
+
+#pragma mark 懒加载
 
 - (NSArray *)loginAllList{
     

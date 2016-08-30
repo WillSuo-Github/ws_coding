@@ -13,6 +13,7 @@
 		541A86221D6DBA5900D62672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541A86201D6DBA5900D62672 /* LaunchScreen.storyboard */; };
 		541A862D1D6DBA5900D62672 /* ws_codingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 541A862C1D6DBA5900D62672 /* ws_codingTests.m */; };
 		541A86381D6DBA5900D62672 /* ws_codingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 541A86371D6DBA5900D62672 /* ws_codingUITests.m */; };
+		5422DD6B1D75B9AF00CB6F18 /* UITableView+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 5422DD6A1D75B9AF00CB6F18 /* UITableView+Common.m */; };
 		5460505F1D71BBCC00F57989 /* StartImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460505E1D71BBCC00F57989 /* StartImageManager.m */; };
 		5485A5EF1D72D79500718940 /* UIButton+Bootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5485A5EE1D72D79500718940 /* UIButton+Bootstrap.m */; };
 		5485A5F31D72E59400718940 /* Login2FATipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5485A5F21D72E59400718940 /* Login2FATipCell.m */; };
@@ -634,6 +635,8 @@
 		541A86371D6DBA5900D62672 /* ws_codingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ws_codingUITests.m; sourceTree = "<group>"; };
 		541A86391D6DBA5900D62672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		541A86481D6DBBF400D62672 /* ws_coding-Pirefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ws_coding-Pirefix.pch"; sourceTree = "<group>"; };
+		5422DD691D75B9AF00CB6F18 /* UITableView+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Common.h"; sourceTree = "<group>"; };
+		5422DD6A1D75B9AF00CB6F18 /* UITableView+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Common.m"; sourceTree = "<group>"; };
 		5460505D1D71BBCC00F57989 /* StartImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartImageManager.h; sourceTree = "<group>"; };
 		5460505E1D71BBCC00F57989 /* StartImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartImageManager.m; sourceTree = "<group>"; };
 		5485A5ED1D72D79500718940 /* UIButton+Bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Bootstrap.h"; sourceTree = "<group>"; };
@@ -1432,6 +1435,8 @@
 			children = (
 				5485A5F81D72EF6000718940 /* UITapImageView.h */,
 				5485A5F91D72EF6000718940 /* UITapImageView.m */,
+				5422DD691D75B9AF00CB6F18 /* UITableView+Common.h */,
+				5422DD6A1D75B9AF00CB6F18 /* UITableView+Common.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -3172,6 +3177,7 @@
 			files = (
 				5485A5FA1D72EF6000718940 /* UITapImageView.m in Sources */,
 				5485A6221D72F11E00718940 /* SDWebImagePrefetcher.m in Sources */,
+				5422DD6B1D75B9AF00CB6F18 /* UITableView+Common.m in Sources */,
 				549EAA721D6DBEB1008FFA6F /* RootTabViewController.m in Sources */,
 				5485A6261D72F11E00718940 /* UIImage+WebP.m in Sources */,
 				5485A6281D72F11E00718940 /* UIImageView+WebCache.m in Sources */,

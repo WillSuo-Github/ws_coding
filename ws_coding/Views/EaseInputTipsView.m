@@ -18,6 +18,10 @@
 
 @implementation EaseInputTipsView
 
++ (instancetype)tipsViewWithType:(EaseInputTipsViewType)type{
+    return [[self alloc] initWithTipsType:type];
+}
+
 - (instancetype)initWithTipsType:(EaseInputTipsViewType)type{
     
     CGFloat padingWidth = type == EaseInputTipsViewTypeLogin ? kLoginPaddingLeftWidth : 0.0;
@@ -70,6 +74,8 @@
     }else{
         self.dataList = [self emailList];
     }
+    
+    [self refresh];
 }
 
 - (NSArray *)loginList{
@@ -98,10 +104,10 @@
     }
     
     NSString *nameStr = [_valueStr substringToIndex:rang_AT.location];
-    NSString *tipStr = [_valueStr substringFromIndex:rang_AT.location];
+    NSString *tipStr = [_valueStr substringFromIndex:rang_AT.location + rang_AT.length];
     NSMutableArray *list = [NSMutableArray new];
-    [[self emailList] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (tipStr.length && [tipStr rangeOfString:tipStr].location != NSNotFound) {//??原工程用的||
+    [[self emailAllList] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (tipStr.length <= 0 || [obj rangeOfString:tipStr].location != NSNotFound) {
             [list addObject:[nameStr stringByAppendingFormat:@"@%@",obj]];
         }
     }];
@@ -139,16 +145,29 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    [tableView]
+    [tableView addLineforPlainCell:cell forRowIndexPath:indexPath withLeftSpace:kLoginPaddingLeftWidth hasSectionLine:NO];
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.selectedStringBlock && self.dataList.count > indexPath.row) {
+        self.selectedStringBlock([self.dataList objectAtIndex:indexPath.row]);
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 35;
+}
 
 #pragma mark 懒加载
 
 - (NSArray *)loginAllList{
     
     if (_loginAllList == nil) {
-        _loginAllList = [[Login readLogonDataList] allKeys];
+        _loginAllList = [[Login readLoginDataList] allKeys];
     }
     return _loginAllList;
 }

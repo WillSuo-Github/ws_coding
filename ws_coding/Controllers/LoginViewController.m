@@ -13,15 +13,19 @@
 #import "Login.h"
 #import "Login2FATipCell.h"
 #import "Input_OnlyText_Cell.h"
+#import "EaseInputTipsView.h"
+#import "User.h"
 
 @interface LoginViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (assign, nonatomic) BOOL captchaNeeded;//是否需要验证码
 @property (nonatomic, strong) Login *myLogin;//登录的类
 @property (nonatomic, strong) TPKeyboardAvoidingTableView *tableView;//主view
 @property (nonatomic, strong) UIImageView *bgBlurredView;//主view的背景
 @property (strong, nonatomic) UIImageView *iconUserView;//头部的logo
 @property (strong, nonatomic) UIButton *loginBtn, *cannotLoginBtn;//登录按钮, 找回密码按钮
 @property (strong, nonatomic) EaseInputTipsView *inputTipsView;
+@property (strong, nonatomic) UIButton *dismissButton;
 
 
 @property (assign, nonatomic) BOOL is2FAUI;//二次验证
@@ -34,10 +38,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.myLogin = [[Login alloc] init];
     self.tableView = ({
         TPKeyboardAvoidingTableView *tableView = [[TPKeyboardAvoidingTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         [tableView registerClass:[Login2FATipCell class] forCellReuseIdentifier:kCellIdentifier_Login2FATipCell];
+        [tableView registerClass:[Input_OnlyText_Cell class] forCellReuseIdentifier:kCellIdentifier_Input_OnlyText_Cell_Text];
+        [tableView registerClass:[Input_OnlyText_Cell class] forCellReuseIdentifier:kCellIdentifier_Input_OnlyText_Cell_Captcha];
         
         tableView.backgroundView = self.bgBlurredView;
         tableView.delegate = self;
@@ -51,6 +57,58 @@
         tableView.tableFooterView = [self customFooterView];
         tableView;
     });
+    
+    [self refreshIconUserImage];
+    [self showdismissButton:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    if (!_inputTipsView) {
+        _inputTipsView = ({
+            EaseInputTipsView *tipsView = [EaseInputTipsView tipsViewWithType:EaseInputTipsViewTypeLogin];
+            tipsView.valueStr = nil;
+            @weakify(self);
+            tipsView.selectedStringBlock = ^(NSString *valueStr){
+                @strongify(self);
+                [self.view endEditing:YES];
+                self.myLogin.email = valueStr;
+                [self refreshIconUserImage];
+                [self.tableView reloadData];
+            };
+            UITableViewCell *cell = [_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            [tipsView setY:CGRectGetMaxY(cell.frame) - 0.5];
+            [_tableView addSubview:tipsView];
+            tipsView;
+        });
+    }
+}
+
+- (void)refreshIconUserImage{
+    NSString *textStr = self.myLogin.email;
+    if (textStr) {
+        User *curUser = [Login userWithGlobaykeyOrEmail:textStr];//??后边都不太懂
+        if (curUser && curUser.avatar) {
+            //??缩放可以
+            [self.iconUserView sd_setImageWithURL:[curUser.avatar urlImageWithCodePathResizeToView:self.iconUserView] placeholderImage:[UIImage imageNamed:@"icon_user_monkey"]];
+        }
+    }
+}
+
+- (void)showdismissButton:(BOOL)willShow{
+    self.dismissButton.hidden = !willShow;
+    if (!self.dismissButton && willShow) {
+        self.dismissButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 50, 50)];
+        [self.dismissButton setImage:[UIImage imageNamed:@"dismissBtn_Nav"] forState:UIControlStateNormal];
+        [self.dismissButton addTarget:self action:@selector(dismissButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:self.dismissButton];
+    }
 }
 
 #pragma mark TableView Header Footer
@@ -112,6 +170,8 @@
         button;
     });
     
+    
+    
     return footerV;
 }
 
@@ -128,6 +188,12 @@
     
 }
 
+- (void)dismissButtonClicked{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
 
 #pragma mark UITableViewDelegate
 
@@ -135,7 +201,7 @@
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 3;
+    return _is2FAUI? 2: _captchaNeeded? 3: 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -162,12 +228,38 @@
             [cell setPlaceholder:@" 手机号码/电子邮箱/个性后缀" value:self.myLogin.email];
             cell.textValueChangedBlock = ^(NSString *valueStr){
                 @strongify(self);
-                self.
-                
-            }
+                self.inputTipsView.valueStr = valueStr;
+                self.inputTipsView.active = YES;
+                self.myLogin.email = valueStr;
+                [self refreshIconUserImage];
+            };
+            cell.editDidBeginBlock = ^(NSString *valueStr){
+                @strongify(self);
+                self.inputTipsView.valueStr = valueStr;
+                self.inputTipsView.active = YES;
+            };
+            
+            cell.editDidEndBlock = ^(NSString *textStr){
+                @strongify(self);
+                self.inputTipsView.active = NO;
+            };
+        }else if (indexPath.row == 1){
+            [cell setPlaceholder:@" 密码" value:self.myLogin.password];
+            cell.textField.secureTextEntry = YES;
+            cell.textValueChangedBlock = ^(NSString *valueStr){
+                @strongify(self);
+                self.myLogin.password = valueStr;
+            };
+        }else{
+            [cell setPlaceholder:@" 验证码" value:self.myLogin.j_captcha];
+            cell.textValueChangedBlock = ^(NSString *valueStr){
+                @strongify(self);
+                self.myLogin.j_captcha = valueStr;
+            };
         }
     }
     
+    return cell;
 }
 
 #pragma mark 懒加载

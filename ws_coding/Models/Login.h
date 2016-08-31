@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @interface Login : NSObject
 
-@property (readwrite, nonatomic, strong) NSString *email, *password;
+@property (readwrite, nonatomic, strong) NSString *email, *password, *j_captcha;//邮箱， 密码， 验证码
 
 + (BOOL)isLogin;
-+ (NSMutableDictionary *)readLogonDataList;
++ (NSMutableDictionary *)readLoginDataList;
++ (User *)userWithGlobaykeyOrEmail:(NSString *)textStr;
 @end

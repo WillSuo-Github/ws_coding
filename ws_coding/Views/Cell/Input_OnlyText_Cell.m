@@ -55,7 +55,7 @@
                 _captchaView.layer.masksToBounds = YES;
                 [_captchaView addTapBlock:^(id obj) {
                     @strongify(self);
-                    
+                    [self refreshCaptchaImage];
                 }];
                 [self.contentView addSubview:_captchaView];
             }

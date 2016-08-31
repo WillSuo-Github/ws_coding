@@ -10,4 +10,6 @@
 
 @interface UITableView (Common)
 
+- (void)addLineforPlainCell:(UITableViewCell *)cell forRowIndexPath:(NSIndexPath *)indexPath withLeftSpace:(CGFloat)leftSpace hasSectionLine:(BOOL)hasSectionLine;
+
 @end

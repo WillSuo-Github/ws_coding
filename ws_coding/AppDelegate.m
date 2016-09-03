@@ -12,6 +12,7 @@
 #import "ViewController.h"
 #import "Login.h"
 #import "IntroductionViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -57,6 +58,12 @@
 - (void)setupIntroductionViewController{
     IntroductionViewController *introductVC = [[IntroductionViewController alloc] init];
     [self.window setRootViewController:introductVC];
+}
+
+- (void)setupLoginViewController{
+    
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    [self.window setRootViewController:loginVC];
 }
 
 @end

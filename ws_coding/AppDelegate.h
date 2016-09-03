@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-
+- (void)setupLoginViewController;
+//登录过后的主控制器
+- (void)setupTabViewController;
 @end
 

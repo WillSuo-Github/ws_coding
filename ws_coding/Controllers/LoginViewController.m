@@ -15,6 +15,8 @@
 #import "Input_OnlyText_Cell.h"
 #import "EaseInputTipsView.h"
 #import "User.h"
+#import "Coding_NetAPIManager.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -26,6 +28,9 @@
 @property (strong, nonatomic) UIButton *loginBtn, *cannotLoginBtn;//登录按钮, 找回密码按钮
 @property (strong, nonatomic) EaseInputTipsView *inputTipsView;
 @property (strong, nonatomic) UIButton *dismissButton;
+
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
+
 
 
 @property (assign, nonatomic) BOOL is2FAUI;//二次验证
@@ -179,7 +184,35 @@
 //登录点击事件
 - (void)sendLogin:(UIButton *)loginBtn{
     
+    NSString *tipMsg = [self.myLogin goToLoginTipWithCaptcha:NO];
+    if (tipMsg) {
+        kTipAlert(@"%@",tipMsg);
+        return;
+    }
     
+    [self.view endEditing:YES];
+    if (!_activityIndicator) {
+        _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        CGSize captchaViewSize = _loginBtn.bounds.size;
+        _activityIndicator.hidesWhenStopped = YES;
+        [_activityIndicator setCenter:CGPointMake(captchaViewSize.width/2, captchaViewSize.height/2)];
+        [_loginBtn addSubview:_activityIndicator];
+    }
+    [_activityIndicator stopAnimating];
+    _loginBtn.enabled = NO;
+    @weakify(self);
+    [[Coding_NetAPIManager sharedManager] request_Login_WithPath:[self.myLogin toPath] Params:[self.myLogin toParams] andBlock:^(id data, NSError *error) {
+        DebugLog(@"%@",data);
+        @strongify(self);
+        self.loginBtn.enabled = YES;
+        [self.activityIndicator stopAnimating];
+        if (data) {
+            [Login setPreUserEmail:self.myLogin.email];
+            [(AppDelegate *)[UIApplication sharedApplication].delegate setupTabViewController   ];
+        }else{//刷新验证码 和 弹出设置邮箱
+            
+        }
+    }];
 }
 
 //找回密码的点击事件

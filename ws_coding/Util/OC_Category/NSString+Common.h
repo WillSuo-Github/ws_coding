@@ -11,5 +11,5 @@
 @interface NSString (Common)
 
 - (NSURL *)urlImageWithCodePathResizeToView:(UIView *)view;
-
+- (NSString*) sha1Str;
 @end

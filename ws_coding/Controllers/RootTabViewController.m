@@ -18,8 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setupViewControllers];
 }
 
+
+- (void)setupViewControllers{
+    
+}
 
 
 @end

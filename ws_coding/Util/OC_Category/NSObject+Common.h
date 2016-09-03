@@ -12,4 +12,9 @@
 
 + (NSString *)baseURLStr;
 
+-(id)handleResponse:(id)responseJSON;
+- (id)handleResponse:(id)responseJson autoShowError:(BOOL)autoShowError;
+
++ (void)showHudTipStr:(NSString *)tipStr;
++ (BOOL)showError:(NSError *)error;
 @end

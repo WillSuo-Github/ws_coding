@@ -641,7 +641,6 @@
 		549EAEEB1D6DC0C4008FFA6F /* EaseStartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAEEA1D6DC0C4008FFA6F /* EaseStartView.m */; };
 		549EAEF01D6DC2AD008FFA6F /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAEEF1D6DC2AD008FFA6F /* UIColor+expanded.m */; };
 		549EAEF31D6DD378008FFA6F /* UIView+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAEF21D6DD378008FFA6F /* UIView+Common.m */; };
-		549EAEF61D6DD723008FFA6F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549EAEF51D6DD723008FFA6F /* ViewController.m */; };
 		54DEDF4E1D7165E20014BC3A /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DEDF4D1D7165E20014BC3A /* Login.m */; };
 		54DEDF511D717DD00014BC3A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DEDF501D717DD00014BC3A /* LoginViewController.m */; };
 		54DEDF541D717E490014BC3A /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DEDF531D717E490014BC3A /* BaseNavigationController.m */; };
@@ -1377,8 +1376,6 @@
 		549EAEEF1D6DC2AD008FFA6F /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
 		549EAEF11D6DD378008FFA6F /* UIView+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Common.h"; sourceTree = "<group>"; };
 		549EAEF21D6DD378008FFA6F /* UIView+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Common.m"; sourceTree = "<group>"; };
-		549EAEF41D6DD723008FFA6F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		549EAEF51D6DD723008FFA6F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		54DEDF4C1D7165E20014BC3A /* Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
 		54DEDF4D1D7165E20014BC3A /* Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Login.m; sourceTree = "<group>"; };
 		54DEDF4F1D717DD00014BC3A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -1523,8 +1520,6 @@
 				549EAA731D6DC08C008FFA6F /* Images */,
 				54EB9B371D71435600FA6610 /* Vendor */,
 				549EAEEC1D6DC289008FFA6F /* Util */,
-				549EAEF41D6DD723008FFA6F /* ViewController.h */,
-				549EAEF51D6DD723008FFA6F /* ViewController.m */,
 			);
 			path = ws_coding;
 			sourceTree = "<group>";
@@ -3536,7 +3531,6 @@
 				546EF03E1D7AB30E0027F94F /* JDStatusBarStyle.m in Sources */,
 				5485A6291D72F11E00718940 /* UIView+WebCacheOperation.m in Sources */,
 				54DEDF511D717DD00014BC3A /* LoginViewController.m in Sources */,
-				549EAEF61D6DD723008FFA6F /* ViewController.m in Sources */,
 				546EF06F1D7AC88E0027F94F /* Me_RootViewController.m in Sources */,
 				546EF0721D7AC89E0027F94F /* Message_RootViewController.m in Sources */,
 				54EB9B361D713F8900FA6610 /* IntroductionViewController.m in Sources */,

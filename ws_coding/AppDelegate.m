@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "RootTabViewController.h"
 #import "EaseStartView.h"
-#import "ViewController.h"
 #import "Login.h"
 #import "IntroductionViewController.h"
 #import "LoginViewController.h"
@@ -49,9 +48,7 @@
     RootTabViewController *rootVC = [[RootTabViewController alloc] init];
     rootVC.tabBar.translucent = YES;
     
-    ViewController *vc = [[ViewController alloc] init];
-    
-    [self.window setRootViewController:vc];
+    [self.window setRootViewController:rootVC];
 }
 
 //启动页面

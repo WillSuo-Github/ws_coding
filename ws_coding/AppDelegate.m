@@ -26,6 +26,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
+    
+    //设置导航条样式
+    [self customizeInterface];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    
     if ([Login isLogin]) {//已经登录过
         [self setupTabViewController];
     }else{
@@ -41,6 +46,24 @@
     
     return YES;
 }
+
+- (void)customizeInterface{
+    
+    UINavigationBar *navBarAppearance = [UINavigationBar appearance];
+    [navBarAppearance setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:[NSObject baseURLStrIsTest]? @"0x3bbd79" : @"0x28303b"]] forBarMetrics: UIBarMetricsDefault];
+    [navBarAppearance setTintColor:[UIColor whiteColor]];
+    NSDictionary *textAttributes = @{
+                                     NSFontAttributeName : [UIFont boldSystemFontOfSize:kNavTitleFontSize],
+                                     NSForegroundColorAttributeName : [UIColor whiteColor],
+                                     };
+    [navBarAppearance setTitleTextAttributes:textAttributes];
+    
+    [[UITextField appearance] setTintColor:[UIColor colorWithHexString:@"3bbc97"]];
+    [[UITextView appearance] setTintColor:[UIColor colorWithHexString:@"3bbc97"]];
+    [[UISearchBar appearance] setBackgroundImage:[UIImage imageWithColor:kColorTableSectionBg] forBarPosition:0 barMetrics:UIBarMetricsDefault];
+    
+}
+
 
 //登录过后的主控制器
 - (void)setupTabViewController{

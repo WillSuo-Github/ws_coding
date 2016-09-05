@@ -17,7 +17,7 @@
 //
 #import "NSString+Common.h"
 #import "NSObject+Common.h"
-//#import "UIImage+Common.h"
+#import "UIImage+Common.h"
 #import "UIButton+Bootstrap.h"
 #import "UIColor+expanded.h"
 //#import "UIButton+Common.h"
@@ -28,7 +28,7 @@
 //#import "UIBarButtonItem+Common.h"
 //#import "UIActionSheet+Common.h"
 //#import "NSURL+Common.h"
-//#import "UISearchBar+Common.h"
+#import "UISearchBar+Common.h"
 //#import "UITTTAttributedLabel.h"
 #import "NSObject+ObjectMap.h"
 //#import "ImageSizeManager.h"

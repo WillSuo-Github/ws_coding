@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "MainSearchBar.h"
 
 @interface Project_RootViewController : BaseViewController
 

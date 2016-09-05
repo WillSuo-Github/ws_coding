@@ -8,7 +8,10 @@
 
 #import "BaseViewController.h"
 #import "MainSearchBar.h"
+#import "iCarousel.h"
 
-@interface Project_RootViewController : BaseViewController
+@interface Project_RootViewController : BaseViewController<iCarouselDataSource, iCarouselDelegate>
+
+@property (nonatomic, strong) iCarousel *myCarousel;
 
 @end

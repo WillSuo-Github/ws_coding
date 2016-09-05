@@ -7,6 +7,7 @@
 //
 
 #import "Project_RootViewController.h"
+#import "SearchViewController.h"
 
 @interface Project_RootViewController ()<UISearchBarDelegate>
 
@@ -19,6 +20,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _myCarousel = ({
+        
+        iCarousel *icarousel = [[iCarousel alloc] init];
+        icarousel.delegate = self;
+        icarousel.dataSource = self;
+        icarousel.decelerationRate = 1.0;
+        icarousel.scrollSpeed = 1.0;
+        icarousel.type = iCarouselTypeLinear;
+        icarousel.pagingEnabled = YES;
+        icarousel.clipsToBounds = YES;
+        icarousel.bounceDistance = 0.2;
+        [self.view addSubview:icarousel];
+        [icarousel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view);
+        }];
+        
+        icarousel;
+    });
     
     _mySearchBar = ({
         MainSearchBar *searchBar = [[MainSearchBar alloc] initWithFrame:CGRectMake(60,7, kScreen_Width-115, 31)];
@@ -43,9 +63,25 @@
     [self.navigationController.navigationBar addSubview:_mySearchBar];
 }
 
+- (void)goToSearchVC{
+    
+    SearchViewController *searchVC = [SearchViewController new];
+    BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:searchVC];
+    [self.navigationController presentViewController:nav animated:NO completion:nil];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark UISearchBarDelegate
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    
+    [self goToSearchVC];
+    return NO;
 }
 
 #pragma mark scan QR-Code

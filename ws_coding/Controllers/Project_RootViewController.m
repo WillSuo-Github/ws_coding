@@ -8,10 +8,12 @@
 
 #import "Project_RootViewController.h"
 #import "SearchViewController.h"
+#import "ProjectListView.h"
 
 @interface Project_RootViewController ()<UISearchBarDelegate>
 
 @property (nonatomic, strong) MainSearchBar *mySearchBar;
+@property (strong, nonatomic) NSArray *segmentItems;
 
 @end
 
@@ -20,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self configSegmentItems];
     
     _myCarousel = ({
         
@@ -61,6 +65,17 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar addSubview:_mySearchBar];
+    
+    if (_myCarousel) {
+        ProjectListView *listView = (ProjectListView *)_myCarousel.currentItemView;
+        if (listView) {
+            [listView refreshToQueryData];
+        }
+    }
+}
+
+- (void)configSegmentItems{
+    _segmentItems = @[@"全部项目",@"我创建的", @"我参与的",@"我关注的",@"我收藏的"];
 }
 
 - (void)goToSearchVC{
@@ -88,6 +103,29 @@
 - (void)scanBtnClicked{
     
     
+}
+
+#pragma mark ICarousel
+- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
+    
+    return _segmentItems.count;
+}
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view{
+    
+    Projects *pro = [[Projects alloc] init];
+    ProjectListView *listView = (ProjectListView *)view;
+    if (!listView) {
+        listView = [[ProjectListView alloc] initWithFrame:carousel.bounds projects:pro];
+    }
+    
+    
+    return listView;
+}
+
+- (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel{
+    
+    ProjectListView *curView = (ProjectListView *)carousel.currentItemView;
+    [curView refreshToQueryData];
 }
 
 /*

@@ -18,7 +18,7 @@
     return shared_manager;
 }
 
-
+#pragma mark 登录
 - (void)request_Login_WithPath:(NSString *)path Params:(id)params andBlock:(void(^)(id data, NSError *error))block{
     
     [[CodingNetAPIClient sharedJsonClient] requestJsonDataWithPath:path withParams:params withMethodType:POST autoShowError:NO andBlock:^(id data, NSError *error) {
@@ -37,6 +37,23 @@
                     block(curLoginUser, nil);
                 }
             }];
+        }else{
+            block(nil, error);
+        }
+    }];
+}
+
+
+#pragma mark 首页项目列表
+- (void)request_Projects_WithObj:(Projects *)projects andBlock:(void (^)(Projects *data, NSError *error))block{
+    
+    [[CodingNetAPIClient sharedJsonClient] requestJsonDataWithPath:[projects toPath] withParams:[projects toParams] withMethodType:GET andBlock:^(id data, NSError *error) {
+        
+        if (data) {
+            id resultData = [data valueForKeyPath:@"data"];
+            NSLog(@"%@",resultData);
+            Projects *pros = [NSObject objectOfClass:@"Projects" fromJSON:resultData];
+            block(pros, nil);
         }else{
             block(nil, error);
         }

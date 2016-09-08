@@ -25,7 +25,9 @@ static User *curLoginUser;
 - (NSDictionary *)toParams{
     NSMutableDictionary *params = @{@"account": self.email,
                                     @"password" : [self.password sha1Str],
-                                    @"remember_me" : self.remember_me? @"true" : @"false",}.mutableCopy;
+//                                    @"remember_me" : self.remember_me? @"true" : @"false",
+                                    @"remember_me" : @"true" 
+                                    }.mutableCopy;
     if (self.j_captcha.length > 0) {
         params[@"j_captcha"] = self.j_captcha;
     }
@@ -37,9 +39,9 @@ static User *curLoginUser;
     if (emailStr.length <= 0) {
         return;
     }
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:emailStr forKey:kLoginPreUserEmail];
-    [defaults synchronize];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:emailStr forKey:kLoginPreUserEmail];
+//    [defaults synchronize];
 }
 
 + (BOOL)isLogin{
@@ -98,17 +100,17 @@ static User *curLoginUser;
 }
 
 + (void)doLoginIn:(NSDictionary *)loginData{
-    if (loginData) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:[NSNumber numberWithBool:YES] forKey:kLoginStatus];
-        [defaults setObject:loginData forKey:kLoginUserDict];
-        curLoginUser = [NSObject objectOfClass:@"User" fromJSON:loginData];
-        [defaults synchronize];
-        
-        [self saveLoginData:loginData];//??保存的是dict   是否能保存对象  能否优化
-    }else{
-        [Login doLoginOut];
-    }
+//    if (loginData) {
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        [defaults setObject:[NSNumber numberWithBool:YES] forKey:kLoginStatus];
+//        [defaults setObject:loginData forKey:kLoginUserDict];
+//        curLoginUser = [NSObject objectOfClass:@"User" fromJSON:loginData];
+//        [defaults synchronize];
+//        
+//        [self saveLoginData:loginData];//??保存的是dict   是否能保存对象  能否优化
+//    }else{
+//        [Login doLoginOut];
+//    }
 }
 
 + (BOOL)saveLoginData:(NSDictionary *)loginData{

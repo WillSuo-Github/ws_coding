@@ -15,7 +15,7 @@
 
 //请求
 @property (readwrite, nonatomic, strong) NSNumber *page, *pageSize;
-
+@property (readwrite, nonatomic, strong) NSMutableArray *list;
 
 + (Projects *)projectsWithUser:(User *)user;
 

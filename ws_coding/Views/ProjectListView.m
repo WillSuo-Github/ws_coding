@@ -38,6 +38,12 @@
             }];
             tableView;
         });
+        
+        if (_myProjects.list.count > 0) {
+            [self.myTableView reloadData];
+        }else{
+            [self sendRequest];
+        }
     }
     return self;
 }

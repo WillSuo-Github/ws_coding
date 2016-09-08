@@ -58,7 +58,7 @@ static CodingNetAPIClient *_sharedClient = nil;
         return;
     }
     
-    DebugLog(@"/n===========request=============/n%@/n%@.n%@",kNetworkMethodName[method], aPath, params);
+    DebugLog(@"\n===========request=============\n%@\n%@\n%@",kNetworkMethodName[method], aPath, params);
     aPath = [aPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     switch (method) {

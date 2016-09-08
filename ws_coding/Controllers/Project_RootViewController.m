@@ -15,6 +15,7 @@
 @property (nonatomic, strong) MainSearchBar *mySearchBar;
 @property (strong, nonatomic) NSArray *segmentItems;
 
+
 @end
 
 @implementation Project_RootViewController
@@ -60,6 +61,7 @@
         [searchBar.scanBtn addTarget:self action:@selector(scanBtnClicked) forControlEvents:UIControlEventTouchUpInside];
         searchBar;
     });
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -112,7 +114,7 @@
 }
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view{
     
-    Projects *pro = [[Projects alloc] init];
+    Projects *pro = [Projects projectsWithUser:nil];
     ProjectListView *listView = (ProjectListView *)view;
     if (!listView) {
         listView = [[ProjectListView alloc] initWithFrame:carousel.bounds projects:pro];

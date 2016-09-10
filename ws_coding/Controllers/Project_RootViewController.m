@@ -114,7 +114,8 @@
 }
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view{
     
-    Projects *pro = [Projects projectsWithUser:nil];
+    Projects *pro = [Projects projectsWithType:ProjectsTypeAll User:nil];
+    
     ProjectListView *listView = (ProjectListView *)view;
     if (!listView) {
         listView = [[ProjectListView alloc] initWithFrame:carousel.bounds projects:pro];

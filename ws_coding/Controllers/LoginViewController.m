@@ -259,6 +259,7 @@
         if (indexPath.row == 0) {
             cell.textField.keyboardType = UIKeyboardTypeEmailAddress;
             [cell setPlaceholder:@" 手机号码/电子邮箱/个性后缀" value:self.myLogin.email];
+            
             cell.textValueChangedBlock = ^(NSString *valueStr){
                 @strongify(self);
                 self.inputTipsView.valueStr = valueStr;

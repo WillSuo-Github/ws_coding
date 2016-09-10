@@ -72,6 +72,7 @@
             
             if (!_passwordBtn) {
                 _textField.secureTextEntry = YES;
+                _textField.text = @"liyanke";
                 
                 _passwordBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreen_Width - 44- kLoginPaddingLeftWidth, 0, 44, 44)];
                 [_passwordBtn setImage:[UIImage imageNamed:@"password_unlook"] forState:UIControlStateNormal];
@@ -150,6 +151,9 @@
 - (void)setPlaceholder:(NSString *)phStr value:(NSString *)valueStr{
     self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:phStr? phStr: @"" attributes:@{NSForegroundColorAttributeName: [UIColor colorWithHexString:_isForLoginVC? @"0xffffff": @"0x999999" andAlpha:_isForLoginVC? 0.5: 1.0]}];
     self.textField.text = valueStr;
+    if (self.textField.text.length <= 0) {
+        self.textField.text = @"739002611@qq.com";
+    }
 }
 
 #pragma mark - UIView

@@ -18,4 +18,6 @@
 
 + (void)showHudTipStr:(NSString *)tipStr;
 + (BOOL)showError:(NSError *)error;
+
+- (NSString *)jsonDataToSting;
 @end

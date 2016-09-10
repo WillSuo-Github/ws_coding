@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54064E5E1D83D6A100CC0DAF /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064E5D1D83D6A100CC0DAF /* Project.m */; };
 		541A86141D6DBA5900D62672 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 541A86131D6DBA5900D62672 /* main.m */; };
 		541A86171D6DBA5900D62672 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 541A86161D6DBA5900D62672 /* AppDelegate.m */; };
 		541A861F1D6DBA5900D62672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541A861E1D6DBA5900D62672 /* Assets.xcassets */; };
@@ -680,6 +681,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		54064E5C1D83D6A100CC0DAF /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		54064E5D1D83D6A100CC0DAF /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
 		541A860F1D6DBA5900D62672 /* ws_coding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ws_coding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		541A86131D6DBA5900D62672 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		541A86151D6DBA5900D62672 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1593,6 +1596,8 @@
 				54703E4F1D770163005D2DA3 /* User.m */,
 				54AB35F71D7EFAAB00F63905 /* Projects.h */,
 				54AB35F81D7EFAAB00F63905 /* Projects.m */,
+				54064E5C1D83D6A100CC0DAF /* Project.h */,
+				54064E5D1D83D6A100CC0DAF /* Project.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -3549,7 +3554,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3602,6 +3607,7 @@
 				549EAEF31D6DD378008FFA6F /* UIView+Common.m in Sources */,
 				5485A6211D72F11E00718940 /* SDWebImageManager.m in Sources */,
 				546EF02A1D7AA1300027F94F /* AFNetworkReachabilityManager.m in Sources */,
+				54064E5E1D83D6A100CC0DAF /* Project.m in Sources */,
 				546EF0781D7AC8B70027F94F /* Tweet_RootViewController.m in Sources */,
 				546EF03E1D7AB30E0027F94F /* JDStatusBarStyle.m in Sources */,
 				54AB35F31D7EEEC800F63905 /* ProjectListView.m in Sources */,

@@ -48,12 +48,13 @@
 - (void)request_Projects_WithObj:(Projects *)projects andBlock:(void (^)(Projects *data, NSError *error))block{
     
     [[CodingNetAPIClient sharedJsonClient] requestJsonDataWithPath:[projects toPath] withParams:[projects toParams] withMethodType:GET andBlock:^(id data, NSError *error) {
+        NSLog(@"%@",[data jsonDataToSting]);
         
         if (data) {
             id resultData = [data valueForKeyPath:@"data"];
-//            NSLog(@"%@",resultData);
-//            Projects *pros = [NSObject objectOfClass:@"Projects" fromJSON:resultData];
-//            block(pros, nil);
+            NSLog(@"%@",[resultData jsonDataToSting]);
+            Projects *pros = [Projects mj_objectWithKeyValues:resultData];
+            block(pros, nil);
         }else{
             block(nil, error);
         }

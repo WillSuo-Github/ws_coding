@@ -92,6 +92,14 @@
     return self;
 }
 
+#pragma mark set
+- (void)setProject:(Project *)pro{
+
+    _projectTitleLabel.text = pro.name;
+    _describeLabel.text = pro.description_mine;
+    _ownerTitleLabel.text = pro.owner_user_name;
+}
+
 #pragma mark button action
 - (void)showSliderAction{
     

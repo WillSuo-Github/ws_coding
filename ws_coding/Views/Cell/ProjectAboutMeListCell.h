@@ -8,8 +8,13 @@
 
 #define kProjectAboutMeListCellHeight 104
 
+
+
 #import <UIKit/UIKit.h>
+#import "Project.h"
 
 @interface ProjectAboutMeListCell : UITableViewCell
+
+- (void)setProject:(Project *)pro;
 
 @end

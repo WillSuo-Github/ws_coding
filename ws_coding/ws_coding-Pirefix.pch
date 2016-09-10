@@ -38,6 +38,7 @@
 #import <ReactiveCocoa/RACEXTScope.h>
 #import "UIImageView+WebCache.h"
 #import <Masonry/Masonry.h>
+#import <MJExtension.h>
 //
 #import "BaseNavigationController.h"
 #import "BaseViewController.h"

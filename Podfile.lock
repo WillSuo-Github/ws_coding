@@ -24,6 +24,7 @@ PODS:
   - MarqueeLabel (2.5.0)
   - Masonry (0.5.3)
   - MBProgressHUD (0.9)
+  - MJExtension (3.0.13)
   - MMMarkdown (0.3)
   - NYXImagesKit (2.3)
   - pop (1.0.9)
@@ -84,6 +85,7 @@ DEPENDENCIES:
   - Masonry
   - Masonry (= 0.5.3)
   - MBProgressHUD (= 0.9)
+  - MJExtension (= 3.0.13)
   - MMMarkdown (= 0.3)
   - NYXImagesKit (= 2.3)
   - POP+MCAnimate (= 2.0.1)
@@ -111,6 +113,7 @@ SPEC CHECKSUMS:
   MarqueeLabel: 6b8ff6915c0536c5099ac30992b7d72f9807df20
   Masonry: 9f515466afe48632562342a40a1c224071a1a022
   MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MMMarkdown: 13af1af50e5f476f1097797f43ea2bd76c83067a
   NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
@@ -129,6 +132,6 @@ SPEC CHECKSUMS:
   UMengAnalytics: 092c24aef47b6ac3c76ad51543f91156a8d7b645
   UMengSocial: 85882abe5b20aa38ad558ece71360e16b5d50909
 
-PODFILE CHECKSUM: e77f13f8308fee94868ff117e969d34618d5d115
+PODFILE CHECKSUM: 3326cacc46b2a7d5ae5cb785b408fd5de3dda76f
 
-COCOAPODS: 1.1.0.beta.1
+COCOAPODS: 1.0.1

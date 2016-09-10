@@ -10,10 +10,14 @@
 #import "ProjectAboutMeListCell.h"
 #import "Coding_NetAPIManager.h"
 
+static NSString *const kTitleKey = @"kTitleKey";
+static NSString *const kValueKey = @"kValueKey";
 @interface ProjectListView ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) Projects *myProjects;
 @property (nonatomic, strong) UITableView *myTableView;
+
+@property (nonatomic, strong) NSMutableArray *dataList;
 
 @end
 
@@ -31,13 +35,17 @@
             tableView.dataSource = self;
             tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             [tableView registerClass:[ProjectAboutMeListCell class] forCellReuseIdentifier:@"ProjectAboutMeListCell"];
-
+            tableView.backgroundColor = [UIColor redColor];
+            
             [self addSubview:tableView];
             [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(self);
             }];
             tableView;
         });
+        
+        
+        
         
         if (_myProjects.list.count > 0) {
             [self.myTableView reloadData];
@@ -63,28 +71,73 @@
 
 - (void)sendRequest{
     
+    `   
     [[Coding_NetAPIManager sharedManager] request_Projects_WithObj:_myProjects andBlock:^(Projects *data, NSError *error) {
-        NSLog(@"%@,%@",data,error);
+        
+        self.myProjects = data;
+        
+        [self setUpDataList];
+        [self.myTableView reloadData];
     }];
+}
+
+- (void)setUpDataList{
+    
+    if (_dataList == nil) {
+        _dataList = [NSMutableArray arrayWithCapacity:2];
+    }
+    [_dataList removeAllObjects];
+    if (_myProjects.type < ProjectsTypeToChoose) {
+        NSArray *pinList = [_myProjects pinList];
+        NSArray *noPinList = [_myProjects noPinList];
+        if (pinList.count > 0) {
+            [_dataList addObject:@{kTitleKey : @"常用项目",
+                                   kValueKey : pinList}];
+        }
+        if (noPinList.count > 0) {
+            [_dataList addObject:@{kTitleKey : @"一般项目",
+                                   kValueKey : noPinList}];
+        }
+    }
 }
 
 
 #pragma mark UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return _dataList.count;
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 10;
+    return [[self valueForSection:section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ProjectAboutMeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProjectAboutMeListCell"];
-
+    [cell setProject:[[self valueForSection:indexPath.section] objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return kProjectAboutMeListCellHeight;
+}
+
+#pragma mark other
+- (NSString *)titleForSection:(NSUInteger)section{
+    if (section < self.dataList.count) {
+        return [[self.dataList objectAtIndex:section] valueForKey:kTitleKey];
+    }
+    return nil;
+}
+- (NSArray *)valueForSection:(NSUInteger)section{
+    if (section < self.dataList.count) {
+        return [[self.dataList objectAtIndex:section] valueForKey:kValueKey];
+    }
+    return nil;
 }
 
 @end

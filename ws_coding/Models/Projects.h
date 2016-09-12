@@ -43,7 +43,7 @@ typedef NS_ENUM(NSInteger, ProjectsType)
 
 - (NSDictionary *)toParams;
 
-
+- (void)configWithProjects:(Projects *)responsePros;
 - (NSArray *)pinList;
 - (NSArray *)noPinList;
 @end

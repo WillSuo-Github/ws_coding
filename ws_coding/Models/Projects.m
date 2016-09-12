@@ -60,7 +60,7 @@
 
 - (NSArray *)pinList{
     NSArray *list = nil;
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pin.intValue == 1"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.pin.intValue == 1"];
     list = [self.list filteredArrayUsingPredicate:predicate];
     return list;
 }

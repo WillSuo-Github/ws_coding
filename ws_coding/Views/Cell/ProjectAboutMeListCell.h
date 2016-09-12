@@ -12,8 +12,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Project.h"
+#import "SWTableViewCell.h"
 
-@interface ProjectAboutMeListCell : UITableViewCell
+@interface ProjectAboutMeListCell : SWTableViewCell
 
 - (void)setProject:(Project *)pro;
 

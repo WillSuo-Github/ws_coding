@@ -23,7 +23,7 @@ static NSString *const kValueKey = @"kValueKey";
 
 @implementation ProjectListView
 
-- (instancetype)initWithFrame:(CGRect)frame projects:(Projects *)projects{
+- (instancetype)initWithFrame:(CGRect)frame projects:(Projects *)projects tabBarHeight:(CGFloat)tabBarHeight{
     if (self = [super initWithFrame:frame]) {
      
         _myProjects = projects;
@@ -35,12 +35,16 @@ static NSString *const kValueKey = @"kValueKey";
             tableView.dataSource = self;
             tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             [tableView registerClass:[ProjectAboutMeListCell class] forCellReuseIdentifier:@"ProjectAboutMeListCell"];
-            tableView.backgroundColor = [UIColor redColor];
-            
+            tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
             [self addSubview:tableView];
             [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(self);
             }];
+            if (tabBarHeight) {
+                tableView.contentInset = UIEdgeInsetsMake(0, 0, tabBarHeight, 0);
+            }
+            
             tableView;
         });
         
@@ -70,12 +74,11 @@ static NSString *const kValueKey = @"kValueKey";
 }
 
 - (void)sendRequest{
-    
-    `   
+
     [[Coding_NetAPIManager sharedManager] request_Projects_WithObj:_myProjects andBlock:^(Projects *data, NSError *error) {
-        
+    
         self.myProjects = data;
-        
+        [self.myProjects configWithProjects:data];
         [self setUpDataList];
         [self.myTableView reloadData];
     }];
@@ -118,6 +121,7 @@ static NSString *const kValueKey = @"kValueKey";
     
     ProjectAboutMeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProjectAboutMeListCell"];
     [cell setProject:[[self valueForSection:indexPath.section] objectAtIndex:indexPath.row]];
+    [tableView addLineforPlainCell:cell forRowAtIndexPath:indexPath withLeftSpaceAndSectionLine:kPaddingLeftWidth];
     return cell;
 }
 

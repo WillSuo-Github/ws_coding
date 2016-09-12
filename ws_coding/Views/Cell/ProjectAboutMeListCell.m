@@ -34,7 +34,7 @@
             [self.contentView addSubview:_projectIconView];
         }
         
-        if (_projectTitleLabel) {
+        if (!_projectTitleLabel) {
             _projectTitleLabel = [UILabel new];
             _projectTitleLabel.textColor = [UIColor colorWithHexString:@"0x222222"];
             _projectTitleLabel.font = [UIFont systemFontOfSize:17];
@@ -94,6 +94,41 @@
 
 #pragma mark set
 - (void)setProject:(Project *)pro{
+    if (!pro) {
+        return;
+    }
+    //Icon
+    [_projectIconView sd_setImageWithURL:[pro.icon urlImageWithCodePathResizeToView:_projectIconView] placeholderImage:kPlaceholderCodingSquareWidth(55.0)];
+    _privateIconView.hidden =(pro.is_public!=nil)? pro.is_public.boolValue:([pro.type intValue]==2)?FALSE:TRUE;
+//    if (_hidePrivateIcon) {
+//        _privateIconView.hidden=TRUE;
+//    }
+    
+    [_privateIconView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(_privateIconView.hidden?CGSizeZero:CGSizeMake(12, 12));
+        make.centerY.equalTo(_projectTitleLabel.mas_centerY);
+        make.left.equalTo(_projectIconView.mas_right).offset(kLeftOffset);
+    }];
+    
+    [_projectTitleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_projectIconView.mas_top);
+        make.height.equalTo(@(20));
+        make.left.equalTo(_privateIconView.mas_right).offset(_privateIconView.hidden?0:8);
+        make.right.lessThanOrEqualTo(self.mas_right).offset(-12);
+    }];
+    
+    [_ownerTitleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.right.height.equalTo(self.projectTitleLabel);
+        make.left.equalTo(self.privateIconView);
+        make.bottom.equalTo(_projectIconView.mas_bottom);
+    }];
+    
+    [_describeLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.privateIconView);
+        make.height.equalTo(@(38));
+        make.width.equalTo(@(kScreen_Width-kLeftOffset-kIconSize-20));
+        make.top.equalTo(_projectTitleLabel.mas_bottom);
+    }];
 
     _projectTitleLabel.text = pro.name;
     _describeLabel.text = pro.description_mine;

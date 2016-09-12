@@ -144,8 +144,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    [tableView addLineforPlainCell:cell forRowIndexPath:indexPath withLeftSpace:kLoginPaddingLeftWidth hasSectionLine:NO];
+
+    [tableView addLineforPlainCell:cell forRowAtIndexPath:indexPath withLeftSpace:kLoginPaddingLeftWidth hasSectionLine:NO];
 }
 
 

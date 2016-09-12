@@ -9,6 +9,7 @@
 #import "Project_RootViewController.h"
 #import "SearchViewController.h"
 #import "ProjectListView.h"
+#import "RDVTabBarController.h"
 
 @interface Project_RootViewController ()<UISearchBarDelegate>
 
@@ -23,8 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     [self configSegmentItems];
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     _myCarousel = ({
         
@@ -118,7 +121,7 @@
     
     ProjectListView *listView = (ProjectListView *)view;
     if (!listView) {
-        listView = [[ProjectListView alloc] initWithFrame:carousel.bounds projects:pro];
+        listView = [[ProjectListView alloc] initWithFrame:carousel.bounds projects:pro tabBarHeight:CGRectGetHeight(self.rdv_tabBarController.tabBar.frame)];
     }
     
     

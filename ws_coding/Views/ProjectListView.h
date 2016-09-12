@@ -10,7 +10,7 @@
 #import "Projects.h"
 
 @interface ProjectListView : UIView
-- (instancetype)initWithFrame:(CGRect)frame projects:(Projects *)projects;
+- (instancetype)initWithFrame:(CGRect)frame projects:(Projects *)projects tabBarHeight:(CGFloat)tabBarHeight;
 
 - (void)refreshToQueryData;
 

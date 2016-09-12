@@ -16,7 +16,7 @@
 @property (nonatomic, strong) MainSearchBar *mySearchBar;
 @property (strong, nonatomic) NSArray *segmentItems;
 
-
+@property (nonatomic, strong) UIButton *leftNavBtn;
 @end
 
 @implementation Project_RootViewController
@@ -65,6 +65,7 @@
         searchBar;
     });
 
+    [self setupNavBtn];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -79,6 +80,13 @@
     }
 }
 
+- (void)setupNavBtn{
+    
+    _leftNavBtn = [UIButton new];
+    [self addImageBarButtonWithImageName:@"filtertBtn_normal_Nav" button:_leftNavBtn action:@selector(fliterClicked:) isRight:NO];
+    
+}
+
 - (void)configSegmentItems{
     _segmentItems = @[@"全部项目",@"我创建的", @"我参与的",@"我关注的",@"我收藏的"];
 }
@@ -91,9 +99,24 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)addImageBarButtonWithImageName:(NSString*)imageName button:(UIButton*)aBtn action:(SEL)action isRight:(BOOL)isR{
+    
+    UIImage *image = [UIImage imageNamed:imageName];
+    CGRect frame = CGRectMake(0,0, image.size.width, image.size.height);
+    
+    aBtn.frame=frame;
+    [aBtn setImage:image forState:UIControlStateNormal];
+    [aBtn addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem* barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:aBtn];
+    
+    if (isR)
+    {
+        [self.navigationItem setRightBarButtonItem:barButtonItem];
+    }else
+    {
+        [self.navigationItem setLeftBarButtonItem:barButtonItem];
+    }
 }
 
 

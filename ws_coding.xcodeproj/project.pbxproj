@@ -25,6 +25,7 @@
 		54623A201D7BF19B00B28C65 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 54623A1F1D7BF19B00B28C65 /* UIImage+Common.m */; };
 		54623A281D7C099900B28C65 /* MainSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 54623A271D7C099900B28C65 /* MainSearchBar.m */; };
 		54623A2B1D7C119000B28C65 /* UISearchBar+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 54623A2A1D7C119000B28C65 /* UISearchBar+Common.m */; };
+		546662491D86FBCE00247F5F /* FRDLivelyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 546662481D86FBCE00247F5F /* FRDLivelyButton.m */; };
 		546EEFBD1D7AA0D00027F94F /* CodingNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 546EEFBC1D7AA0D00027F94F /* CodingNetAPIClient.m */; };
 		546EF0251D7AA1300027F94F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 546EEFFE1D7AA1300027F94F /* AFHTTPRequestOperation.m */; };
 		546EF0261D7AA1300027F94F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 546EF0001D7AA1300027F94F /* AFHTTPRequestOperationManager.m */; };
@@ -725,6 +726,8 @@
 		54623A271D7C099900B28C65 /* MainSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSearchBar.m; sourceTree = "<group>"; };
 		54623A291D7C119000B28C65 /* UISearchBar+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+Common.h"; sourceTree = "<group>"; };
 		54623A2A1D7C119000B28C65 /* UISearchBar+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+Common.m"; sourceTree = "<group>"; };
+		546662471D86FBCE00247F5F /* FRDLivelyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRDLivelyButton.h; sourceTree = "<group>"; };
+		546662481D86FBCE00247F5F /* FRDLivelyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRDLivelyButton.m; sourceTree = "<group>"; };
 		546EEFBB1D7AA0D00027F94F /* CodingNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodingNetAPIClient.h; sourceTree = "<group>"; };
 		546EEFBC1D7AA0D00027F94F /* CodingNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodingNetAPIClient.m; sourceTree = "<group>"; };
 		546EEFFB1D7AA1300027F94F /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -1675,6 +1678,15 @@
 				54623A271D7C099900B28C65 /* MainSearchBar.m */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		546662461D86FBCE00247F5F /* FRDLivelyButton */ = {
+			isa = PBXGroup;
+			children = (
+				546662471D86FBCE00247F5F /* FRDLivelyButton.h */,
+				546662481D86FBCE00247F5F /* FRDLivelyButton.m */,
+			);
+			path = FRDLivelyButton;
 			sourceTree = "<group>";
 		};
 		546EEFFA1D7AA1300027F94F /* AFNetworking */ = {
@@ -2836,6 +2848,7 @@
 		54EB9B371D71435600FA6610 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				546662461D86FBCE00247F5F /* FRDLivelyButton */,
 				5416AB3A1D85B60A0036E877 /* SWTableViewCell */,
 				5499E9901D7D967900CE12DD /* iCarousel */,
 				546EF0361D7AB30E0027F94F /* JDStatusBarNotification */,
@@ -3679,6 +3692,7 @@
 				5485A5F61D72EADC00718940 /* Input_OnlyText_Cell.m in Sources */,
 				546EF03F1D7AB30E0027F94F /* JDStatusBarView.m in Sources */,
 				54AB35F91D7EFAAB00F63905 /* Projects.m in Sources */,
+				546662491D86FBCE00247F5F /* FRDLivelyButton.m in Sources */,
 				546EF02D1D7AA1300027F94F /* AFURLResponseSerialization.m in Sources */,
 				546EF0261D7AA1300027F94F /* AFHTTPRequestOperationManager.m in Sources */,
 				5485A61D1D72F11E00718940 /* SDWebImageCompat.m in Sources */,

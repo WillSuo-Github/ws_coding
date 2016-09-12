@@ -10,6 +10,7 @@
 #import "SearchViewController.h"
 #import "ProjectListView.h"
 #import "RDVTabBarController.h"
+#import "FRDLivelyButton.h"
 
 @interface Project_RootViewController ()<UISearchBarDelegate>
 
@@ -17,6 +18,8 @@
 @property (strong, nonatomic) NSArray *segmentItems;
 
 @property (nonatomic, strong) UIButton *leftNavBtn;
+@property (nonatomic, strong) FRDLivelyButton *rightNavBtn;
+
 @end
 
 @implementation Project_RootViewController
@@ -85,6 +88,14 @@
     _leftNavBtn = [UIButton new];
     [self addImageBarButtonWithImageName:@"filtertBtn_normal_Nav" button:_leftNavBtn action:@selector(fliterClicked:) isRight:NO];
     
+    _rightNavBtn = [[FRDLivelyButton alloc] initWithFrame:CGRectMake(0, 0, 18.5, 18.5)];
+    [_rightNavBtn setOptions:@{kFRDLivelyButtonLineWidth : @(1.0f),
+                               kFRDLivelyButtonColor : [UIColor whiteColor]}];
+    [_rightNavBtn setStyle:kFRDLivelyButtonStyleHamburger animated:NO];
+    [_rightNavBtn addTarget:self action:@selector(addItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:_rightNavBtn];
+    self.navigationItem.rightBarButtonItem = rightBarButton;
+    
 }
 
 - (void)configSegmentItems{
@@ -117,6 +128,23 @@
     {
         [self.navigationItem setLeftBarButtonItem:barButtonItem];
     }
+}
+
+#pragma mark button action
+- (void)addItemClicked:(FRDLivelyButton *)button{
+    if (button.buttonStyle == kFRDLivelyButtonStyleHamburger) {
+        
+        [button setStyle:kFRDLivelyButtonStyleClose animated:YES];
+    }else{
+        
+        [button setStyle:kFRDLivelyButtonStyleHamburger animated:YES];
+    }
+    
+}
+
+- (void)fliterClicked:(UIButton *)button{
+    
+    
 }
 
 

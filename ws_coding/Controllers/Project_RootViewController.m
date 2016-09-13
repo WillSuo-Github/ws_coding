@@ -11,12 +11,13 @@
 #import "ProjectListView.h"
 #import "RDVTabBarController.h"
 #import "FRDLivelyButton.h"
+#import "PopMenu.h"
 
 @interface Project_RootViewController ()<UISearchBarDelegate>
 
 @property (nonatomic, strong) MainSearchBar *mySearchBar;
 @property (strong, nonatomic) NSArray *segmentItems;
-
+@property (nonatomic, strong) PopMenu *myPopMenu;
 @property (nonatomic, strong) UIButton *leftNavBtn;
 @property (nonatomic, strong) FRDLivelyButton *rightNavBtn;
 
@@ -67,6 +68,21 @@
         [searchBar.scanBtn addTarget:self action:@selector(scanBtnClicked) forControlEvents:UIControlEventTouchUpInside];
         searchBar;
     });
+    
+    //初始化弹出菜单
+    NSArray *menuItems = @[[MenuItem itemWithTitle:@"项目" iconName:@"pop_Project" index:0],
+                           [MenuItem itemWithTitle:@"任务" iconName:@"pop_Task" index:1],
+                           [MenuItem itemWithTitle:@"冒泡" iconName:@"pop_Tweet" index:2],
+                           [MenuItem itemWithTitle:@"添加好友" iconName:@"pop_User" index:3],
+                           [MenuItem itemWithTitle:@"私信" iconName:@"pop_Message" index:4],
+                           [MenuItem itemWithTitle:@"两步验证" iconName:@"pop_2FA" index:5],
+                           ];
+    if (!_myPopMenu) {
+        _myPopMenu = [[PopMenu alloc] initWithFrame:CGRectMake(0, 64, kScreen_Width, kScreen_Height-64) items:menuItems];
+        _myPopMenu.perRowItemCount = 3;
+        _myPopMenu.menuAnimationType = kPopMenuAnimationTypeSina;
+    }
+    
 
     [self setupNavBtn];
 }
@@ -135,9 +151,11 @@
     if (button.buttonStyle == kFRDLivelyButtonStyleHamburger) {
         
         [button setStyle:kFRDLivelyButtonStyleClose animated:YES];
+         [_myPopMenu showMenuAtView:kKeyWindow startPoint:CGPointMake(0, -100) endPoint:CGPointMake(0, -100)];
     }else{
         
         [button setStyle:kFRDLivelyButtonStyleHamburger animated:YES];
+        [_myPopMenu dismissMenu];
     }
     
 }

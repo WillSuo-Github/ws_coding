@@ -12,6 +12,7 @@
 #import "RDVTabBarController.h"
 #import "FRDLivelyButton.h"
 #import "PopMenu.h"
+#import "NProjectViewController.h"
 
 @interface Project_RootViewController ()<UISearchBarDelegate>
 
@@ -82,6 +83,37 @@
         _myPopMenu.perRowItemCount = 3;
         _myPopMenu.menuAnimationType = kPopMenuAnimationTypeSina;
     }
+    @weakify(self);
+    _myPopMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem){
+        @strongify(self);
+        
+        if (self.rightNavBtn.buttonStyle != kFRDLivelyButtonStyleHamburger) {
+            [self.rightNavBtn setStyle:kFRDLivelyButtonStyleHamburger animated:YES];
+        }
+        switch (selectedItem.index) {
+                case 0:
+                [self goToNewProjectVC];
+                break;
+                case 1:
+                [self goToNewTaskVC];
+                break;
+                case 2:
+                [self goToNewTweetVC];
+                break;
+                case 3:
+                [self goToAddUserVC];
+                break;
+                case 4:
+                [self goToMessageVC];
+                break;
+                case 5:
+                [self goTo2FA];
+                break;
+            default:
+                NSLog(@"%@",selectedItem.title);
+                break;
+        }
+    };
     
 
     [self setupNavBtn];
@@ -97,6 +129,12 @@
             [listView refreshToQueryData];
         }
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+    [_mySearchBar removeFromSuperview];
 }
 
 - (void)setupNavBtn{
@@ -189,8 +227,13 @@
     Projects *pro = [Projects projectsWithType:ProjectsTypeAll User:nil];
     
     ProjectListView *listView = (ProjectListView *)view;
+    @weakify(self);
     if (!listView) {
-        listView = [[ProjectListView alloc] initWithFrame:carousel.bounds projects:pro tabBarHeight:CGRectGetHeight(self.rdv_tabBarController.tabBar.frame)];
+        listView = [[ProjectListView alloc] initWithFrame:carousel.bounds projects:pro block:^(Project *project) {
+            @strongify(self);
+            [self goToProject:project];
+            
+        } tabBarHeight:CGRectGetHeight(self.rdv_tabBarController.tabBar.frame)];
     }
     
     
@@ -201,6 +244,42 @@
     
     ProjectListView *curView = (ProjectListView *)carousel.currentItemView;
     [curView refreshToQueryData];
+}
+
+#pragma mark - jump
+//项目详情
+- (void)goToProject:(Project *)project{
+    
+    NProjectViewController *vc = [[NProjectViewController alloc] init];
+    vc.myProject = project;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)goToNewProjectVC{
+    
+    
+}
+
+- (void)goToNewTaskVC{
+    
+}
+
+- (void)goToNewTweetVC{
+    
+    
+}
+- (void)goToAddUserVC{
+    
+    
+}
+- (void)goToMessageVC{
+    
+    
+}
+
+- (void)goTo2FA{
+    
+    
 }
 
 /*

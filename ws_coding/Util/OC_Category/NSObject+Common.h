@@ -12,6 +12,7 @@
 
 + (NSString *)baseURLStr;
 + (BOOL)baseURLStrIsTest;
++ (BOOL)baseURLStrIsProduction;
 
 -(id)handleResponse:(id)responseJSON;
 - (id)handleResponse:(id)responseJson autoShowError:(BOOL)autoShowError;

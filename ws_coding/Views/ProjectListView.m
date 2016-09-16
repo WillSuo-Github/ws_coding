@@ -16,6 +16,7 @@ static NSString *const kValueKey = @"kValueKey";
 
 @property (nonatomic, strong) Projects *myProjects;
 @property (nonatomic, strong) UITableView *myTableView;
+@property (nonatomic, copy) void(^block)(Project *project);
 
 @property (nonatomic, strong) NSMutableArray *dataList;
 
@@ -23,10 +24,11 @@ static NSString *const kValueKey = @"kValueKey";
 
 @implementation ProjectListView
 
-- (instancetype)initWithFrame:(CGRect)frame projects:(Projects *)projects tabBarHeight:(CGFloat)tabBarHeight{
+- (instancetype)initWithFrame:(CGRect)frame projects:(Projects *)projects block:(void(^)(Project *project))block tabBarHeight:(CGFloat)tabBarHeight{
     if (self = [super initWithFrame:frame]) {
      
         _myProjects = projects;
+        _block = block;
         
         _myTableView = ({
             UITableView *tableView = [[UITableView alloc] init];
@@ -104,6 +106,16 @@ static NSString *const kValueKey = @"kValueKey";
     }
 }
 
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (_block) {
+        _block([[self valueForSection:indexPath.section] objectAtIndex:indexPath.row]);
+    }
+
+}
 
 #pragma mark UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

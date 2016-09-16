@@ -17,6 +17,8 @@
 - (NSString *)toPath;
 - (NSDictionary *)toParams;
 
+
++ (User *)curLoginUser;
 + (void)setPreUserEmail:(NSString *)emailStr;
 + (BOOL)isLogin;
 + (NSMutableDictionary *)readLoginDataList;

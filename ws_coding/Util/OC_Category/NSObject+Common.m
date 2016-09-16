@@ -6,6 +6,8 @@
 //  Copyright © 2016年 ws. All rights reserved.
 //
 #define kTestKey @"BaseURLIsTest"
+#define kBaseURLStr @"https://coding.net/"
+
 
 #import "Login.h"
 #import "NSObject+Common.h"
@@ -36,6 +38,10 @@
     //    baseURLStr = @"http://192.168.0.222:8080/";
     
     return baseURLStr;
+}
+
++ (BOOL)baseURLStrIsProduction{
+    return [[self baseURLStr] isEqualToString:kBaseURLStr];
 }
 
 + (BOOL)baseURLStrIsTest{

@@ -8,6 +8,13 @@
 
 #import "BaseViewController.h"
 
-@interface Tweet_RootViewController : BaseViewController
+typedef NS_ENUM(NSUInteger, Tweet_RootViewControllerType){
+    Tweet_RootViewControllerTypeAll = 0,
+    Tweet_RootViewControllerTypeFriend,
+    Tweet_RootViewControllerTypeHot,
+    Tweet_RootViewControllerTypeMine
+};
 
+@interface Tweet_RootViewController : BaseViewController
++ (instancetype)newTweetVCWithType:(Tweet_RootViewControllerType)type;
 @end

@@ -15,6 +15,7 @@
 #import "MyTask_RootViewController.h"
 #import "BaseNavigationController.h"
 #import "RDVTabBarItem.h"
+#import "RKSwipeBetweenViewControllers.h"
 
 
 @interface RootTabViewController ()
@@ -37,13 +38,19 @@
     MyTask_RootViewController *mytask = [[MyTask_RootViewController alloc] init];
     UINavigationController *nav_mytask = [[BaseNavigationController alloc] initWithRootViewController:mytask];
     
+    RKSwipeBetweenViewControllers *nav_tweet = [RKSwipeBetweenViewControllers newSwipeBetweenViewControllers];
+    [nav_tweet.viewControllerArray addObjectsFromArray:@[[Tweet_RootViewController newTweetVCWithType:Tweet_RootViewControllerTypeAll],
+                                                         [Tweet_RootViewController newTweetVCWithType:Tweet_RootViewControllerTypeFriend],
+                                                         [Tweet_RootViewController newTweetVCWithType:Tweet_RootViewControllerTypeHot]]];
+    nav_tweet.buttonText = @[@"冒泡广场",@"朋友圈",@"热门冒泡"];
+    
     Message_RootViewController *message = [[Message_RootViewController alloc] init];
     UINavigationController *nav_message = [[BaseNavigationController alloc] initWithRootViewController:message];
     
     Me_RootViewController *me = [[Me_RootViewController alloc] init];
     UINavigationController *nav_me = [[BaseNavigationController alloc] initWithRootViewController:me];
     
-    [self setViewControllers:@[nav_project,nav_mytask,nav_message,nav_me]];
+    [self setViewControllers:@[nav_project,nav_mytask,nav_tweet,nav_message,nav_me]];
     [self customizeTabBarForControllers];
     self.delegate = self;
 }
@@ -52,8 +59,8 @@
 - (void)customizeTabBarForControllers{
     
     UIImage *backgroundImage = [UIImage imageNamed:@"tabbar_background"];
-    NSArray *tabBarItemImages = @[@"project", @"task", @"privatemessage", @"me"];
-    NSArray *tabBarItemTitles = @[@"项目", @"任务", @"消息", @"我"];
+    NSArray *tabBarItemImages = @[@"project", @"task", @"tweet", @"privatemessage", @"me"];
+    NSArray *tabBarItemTitles = @[@"项目", @"任务", @"冒泡", @"消息", @"我"];
     
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[self tabBar] items]) {

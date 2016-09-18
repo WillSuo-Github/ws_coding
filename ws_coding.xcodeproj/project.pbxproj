@@ -673,6 +673,8 @@
 		54DEDF541D717E490014BC3A /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DEDF531D717E490014BC3A /* BaseNavigationController.m */; };
 		54DEE5231D74631000261C5B /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DEE5221D74631000261C5B /* NSObject+Common.m */; };
 		54DEE5261D74662E00261C5B /* EaseInputTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DEE5251D74662E00261C5B /* EaseInputTipsView.m */; };
+		54E0866E1D8ECDEC005B1D1C /* EasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E0866B1D8ECDEC005B1D1C /* EasePageViewController.m */; };
+		54E0866F1D8ECDEC005B1D1C /* RKSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E0866D1D8ECDEC005B1D1C /* RKSwipeBetweenViewControllers.m */; };
 		54EB9B361D713F8900FA6610 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EB9B351D713F8900FA6610 /* IntroductionViewController.m */; };
 		54EB9CB11D71435600FA6610 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EB9BE31D71435600FA6610 /* RDVTabBar.m */; };
 		54EB9CB21D71435600FA6610 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EB9BE51D71435600FA6610 /* RDVTabBarController.m */; };
@@ -1468,6 +1470,10 @@
 		54DEE5221D74631000261C5B /* NSObject+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Common.m"; sourceTree = "<group>"; };
 		54DEE5241D74662E00261C5B /* EaseInputTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EaseInputTipsView.h; sourceTree = "<group>"; };
 		54DEE5251D74662E00261C5B /* EaseInputTipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EaseInputTipsView.m; sourceTree = "<group>"; };
+		54E0866A1D8ECDEC005B1D1C /* EasePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasePageViewController.h; sourceTree = "<group>"; };
+		54E0866B1D8ECDEC005B1D1C /* EasePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasePageViewController.m; sourceTree = "<group>"; };
+		54E0866C1D8ECDEC005B1D1C /* RKSwipeBetweenViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKSwipeBetweenViewControllers.h; sourceTree = "<group>"; };
+		54E0866D1D8ECDEC005B1D1C /* RKSwipeBetweenViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKSwipeBetweenViewControllers.m; sourceTree = "<group>"; };
 		54EB9B341D713F8900FA6610 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
 		54EB9B351D713F8900FA6610 /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionViewController.m; sourceTree = "<group>"; };
 		54EB9BE21D71435600FA6610 /* RDVTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBar.h; sourceTree = "<group>"; };
@@ -2888,6 +2894,17 @@
 			name = NProjectViewController;
 			sourceTree = "<group>";
 		};
+		54E086691D8ECDEC005B1D1C /* RKSwipeBetweenViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				54E0866A1D8ECDEC005B1D1C /* EasePageViewController.h */,
+				54E0866B1D8ECDEC005B1D1C /* EasePageViewController.m */,
+				54E0866C1D8ECDEC005B1D1C /* RKSwipeBetweenViewControllers.h */,
+				54E0866D1D8ECDEC005B1D1C /* RKSwipeBetweenViewControllers.m */,
+			);
+			path = RKSwipeBetweenViewControllers;
+			sourceTree = "<group>";
+		};
 		54EB9B321D713F3F00FA6610 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -2925,6 +2942,7 @@
 		54EB9B371D71435600FA6610 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				54E086691D8ECDEC005B1D1C /* RKSwipeBetweenViewControllers */,
 				544733E41D883BF100222949 /* XHRealTimeBlur */,
 				544733D71D88389A00222949 /* PopMenu */,
 				546662461D86FBCE00247F5F /* FRDLivelyButton */,
@@ -3700,6 +3718,7 @@
 				546EF0251D7AA1300027F94F /* AFHTTPRequestOperation.m in Sources */,
 				5416AB391D85B26A0036E877 /* UITableView+Common.m in Sources */,
 				546EF0301D7AA1300027F94F /* UIAlertView+AFNetworking.m in Sources */,
+				54E0866F1D8ECDEC005B1D1C /* RKSwipeBetweenViewControllers.m in Sources */,
 				546EF0341D7AA1300027F94F /* UIRefreshControl+AFNetworking.m in Sources */,
 				5416AB481D85B60A0036E877 /* SWCellScrollView.m in Sources */,
 				546EF0331D7AA1300027F94F /* UIProgressView+AFNetworking.m in Sources */,
@@ -3741,6 +3760,7 @@
 				5485A61C1D72F11E00718940 /* SDImageCache.m in Sources */,
 				5499E98F1D7D902200CE12DD /* SearchViewController.m in Sources */,
 				5485A5EF1D72D79500718940 /* UIButton+Bootstrap.m in Sources */,
+				54E0866E1D8ECDEC005B1D1C /* EasePageViewController.m in Sources */,
 				546EF0291D7AA1300027F94F /* AFURLSessionManager.m in Sources */,
 				549EAEF31D6DD378008FFA6F /* UIView+Common.m in Sources */,
 				5485A6211D72F11E00718940 /* SDWebImageManager.m in Sources */,

@@ -9,6 +9,7 @@
 #import "NProjectViewController.h"
 #import "ProjectInfoCell.h"
 #import "ProjectDescriptionCell.h"
+#import "ProjectViewController.h"
 
 @interface NProjectViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *myTableView;
@@ -51,7 +52,23 @@
     
 }
 
+#pragma mark - go to vc
+- (void)goToIndex:(NSInteger)index{
+    
+    ProjectViewController *vc = [[ProjectViewController alloc] init];
+    vc.myProject = _myProject;
+    vc.curIndex = index;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+
 #pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self goToIndex:indexPath.row];
+}
 
 
 

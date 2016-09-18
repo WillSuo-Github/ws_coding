@@ -29,6 +29,7 @@
 		544733E21D88389A00222949 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 544733DD1D88389A00222949 /* MenuItem.m */; };
 		544733E31D88389A00222949 /* PopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 544733DF1D88389A00222949 /* PopMenu.m */; };
 		544733E71D883BF100222949 /* XHRealTimeBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 544733E61D883BF100222949 /* XHRealTimeBlur.m */; };
+		544D5D0B1D8C2B9B0076E7B0 /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 544D5D0A1D8C2B9B0076E7B0 /* ProjectViewController.m */; };
 		5460505F1D71BBCC00F57989 /* StartImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460505E1D71BBCC00F57989 /* StartImageManager.m */; };
 		54623A201D7BF19B00B28C65 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 54623A1F1D7BF19B00B28C65 /* UIImage+Common.m */; };
 		54623A281D7C099900B28C65 /* MainSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 54623A271D7C099900B28C65 /* MainSearchBar.m */; };
@@ -743,6 +744,8 @@
 		544733DF1D88389A00222949 /* PopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopMenu.m; sourceTree = "<group>"; };
 		544733E51D883BF100222949 /* XHRealTimeBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHRealTimeBlur.h; sourceTree = "<group>"; };
 		544733E61D883BF100222949 /* XHRealTimeBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHRealTimeBlur.m; sourceTree = "<group>"; };
+		544D5D091D8C2B9B0076E7B0 /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectViewController.h; sourceTree = "<group>"; };
+		544D5D0A1D8C2B9B0076E7B0 /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
 		5460505D1D71BBCC00F57989 /* StartImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartImageManager.h; sourceTree = "<group>"; };
 		5460505E1D71BBCC00F57989 /* StartImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartImageManager.m; sourceTree = "<group>"; };
 		54623A1E1D7BF19B00B28C65 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
@@ -1656,6 +1659,8 @@
 				5499E98C1D7D8FB700CE12DD /* Search */,
 				54EB9B331D713F5900FA6610 /* RootViewController */,
 				54EB9B321D713F3F00FA6610 /* Login */,
+				544D5D091D8C2B9B0076E7B0 /* ProjectViewController.h */,
+				544D5D0A1D8C2B9B0076E7B0 /* ProjectViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -3701,6 +3706,7 @@
 				544733E21D88389A00222949 /* MenuItem.m in Sources */,
 				544733E01D88389A00222949 /* GlowImageView.m in Sources */,
 				54703E4D1D76FFB6005D2DA3 /* YLImageView.m in Sources */,
+				544D5D0B1D8C2B9B0076E7B0 /* ProjectViewController.m in Sources */,
 				546EF02E1D7AA1300027F94F /* AFNetworkActivityIndicatorManager.m in Sources */,
 				546EF02F1D7AA1300027F94F /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				5446738B1D8BFD24000116C0 /* ProjectDescriptionCell.m in Sources */,

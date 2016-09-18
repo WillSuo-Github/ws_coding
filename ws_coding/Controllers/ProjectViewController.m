@@ -1,36 +1,35 @@
 //
-//  Tweet_RootViewController.m
+//  ProjectViewController.m
 //  ws_coding
 //
-//  Created by ws on 16/9/3.
+//  Created by ws on 16/9/16.
 //  Copyright © 2016年 ws. All rights reserved.
 //
 
-#import "Tweet_RootViewController.h"
+#import "ProjectViewController.h"
 
-@interface Tweet_RootViewController ()
+@interface ProjectViewController ()
 
 @end
 
-@implementation Tweet_RootViewController
+@implementation ProjectViewController
+
+- (instancetype)init{
+    
+    if (self = [super init]) {
+        _curIndex = 0;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"hot_topic_Nav"] style:UIBarButtonItemStylePlain target:self action:@selector(hotTopicBtnClicked:)];
-    
-    [self.parentViewController.navigationItem setLeftBarButtonItem:leftBarItem animated:NO];
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-#pragma mark button action
-- (void)hotTopicBtnClicked:(id)sender{
-    
-    
 }
 
 /*

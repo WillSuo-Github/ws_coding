@@ -53,6 +53,8 @@
     [self setViewControllers:@[nav_project,nav_mytask,nav_tweet,nav_message,nav_me]];
     [self customizeTabBarForControllers];
     self.delegate = self;
+    
+    
 }
 
 
